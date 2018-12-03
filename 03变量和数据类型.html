@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">我爱罗舒婷</div>
+        <script>
+            let oWrap = document.getElementById("wrap");
+            oWrap.onclick = function() { //获取标签内部的文字
+                console.log(oWrap.innerHTML);
+            }
+            //三维数组的应用
+            let x = [
+                10,
+                [1,2,[3,4,5]]
+            ]
+            console.log(x[1][2][1]);
+            s
+            // []的应用
+            let y = {
+                name: "老王",
+                    age: 18
+            }
+            y[Symbol("marry")] = true;//使用Symbol定义一个独一无二的数值
+            let age = "name";
+            //y.name = y["name"]; age = "name"--->y.name=y[age]
+            console.log(y.age);
+            console.log(y[age]);//此时的age是变量名
+            console["log"]("我也可以输出")//==console.log("我也可以输出");
+
+            //typeof运用
+            let d = 10;
+            let e = typeof d;
+            console.log(typeof e);
+            let f = null;
+            console.log(typeof f);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
