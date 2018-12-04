@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!--作业: 评论系统-->
+        <meta charset="UTF-8">
+        <title>评论系统</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 504px;
+                height: 500px;
+                margin: 30px auto;
+            }
+            #space{
+                width: 500px;
+                height: 200px;
+                font-size: 20px;
+                resize: none;
+            }
+            #wrap #list li{
+                width: 504px;
+                height: 80px;
+                text-indent: 2em;
+                line-height: 80px;
+                font-size: 20px;
+                border-bottom: 1px dashed black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea id="space"></textarea>
+            <input id="but" type="submit">
+            <ul id="list"></ul>
+        </div>
+        <script>
+            let oText = document.getElementById("space");
+            let oBut = document.getElementById("but");
+            let oList = document.getElementById("list");
+            oBut.onclick = function(){
+                let val = oText.value;
+                // let a = "<li>";
+                // a += val;
+                // a += "</li>";
+                //oList.innerHTML += a;
+                oList.innerHTML += "<li>"+val+"</li>";
+                oText.value = "";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
