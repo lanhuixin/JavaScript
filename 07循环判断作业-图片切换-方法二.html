@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>图片切换</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;display: block;}
+            #wrap{
+                position: relative;
+                width: 500px;
+                height: 600px;
+                margin: 50px auto;
+                user-select: none;
+            }
+            #wrap .list{
+                width: 500px;
+                height: 500px;
+                margin-bottom: 10px;
+            }
+            #wrap .list li{
+                display: none;
+                position: absolute;
+                text-align: center;
+            }
+            #wrap .list li.show{
+                display: block;
+            }
+            #wrap .list li div{
+                position: absolute;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                color: white;
+                background-color: rgba(0,0,0,.5);
+            }
+            #wrap .list li div:nth-of-type(2){
+                bottom: 0;
+            }
+            #wrap .but li{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                color: white;
+                cursor: pointer;
+                font-size: 25px;
+                background-color: rgba(0,0,0,.5);
+            }
+            #wrap .but .left{
+                top: 200px;
+            }
+            #wrap .but .right{
+                top: 200px;
+                right: 0px;
+            }
+            #wrap .model{
+                width: 500px;
+                height: 50px;
+                margin-left: 145px;
+            }
+            #wrap .model li{
+                float: left;
+                width: 80px;
+                height: 30px;
+                margin-left: 10px;
+                line-height: 30px;
+                text-align: center;
+                border: 1px solid black;
+                cursor: pointer;
+                box-shadow: 2px 5px 5px #000;
+            }
+            #wrap .model li:active{
+                box-shadow: none;
+            }
+            #wrap .model .active{
+                background-color: cyan;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <li class="show">
+                    <div>1/5</div>
+                    <img src="./img/1.jpg" alt="剑士">
+                    <div>女剑士</div>
+                </li>
+                <li>
+                    <div>2/5</div>
+                    <img src="./img/2.jpg" alt="精灵">
+                    <div>小精灵</div>
+                </li>
+                <li>
+                    <div>3/5</div>
+                    <img src="./img/3.jpg" alt="双马尾">
+                    <div>双马尾</div>
+                </li>
+                <li>
+                    <div>4/5</div>
+                    <img src="./img/4.jpg" alt="兔女郎">
+                    <div>兔女郎</div>
+                </li>
+                <li>
+                    <div>5/5</div>
+                    <img src="./img/5.jpg" alt="学生妹">
+                    <div>学生妹</div>
+                </li>
+            </ul>
+            <ul class="but">
+                <li class="left"> < </li>
+                <li class="right"> > </li>
+            </ul>
+            <ul class="model">
+                <li class="active">正常模式</li>
+                <li>循环模式</li>
+            </ul>
+        </div>
+        <script>
+            let oLeft = document.getElementsByClassName("left")[0],
+                oRight = document.getElementsByClassName("right")[0],
+                aList = document.querySelectorAll("#wrap .list li"),
+                aMo= document.querySelectorAll("#wrap .model li");
+            let index = 0,
+                bool = true;
+            //左点击按钮
+            oLeft.onclick = function(){
+                aList[index].className = "";
+                index--;
+                //判断单边或循环
+                if( index < 0 ){
+                    index = bool?0:aList.length-1;
+                }
+                // if ( index < 0 ){
+                //     if(bool){
+                //         index = 0;
+                //     }else{
+                //         index = aList.length-1;
+                //     }
+                // }
+                // if(bool){//真为单边
+                //     if( index < 0){
+                //         index = 0;
+                //     }
+                // }else{//假为循环
+                //     if( index < 0 ){
+                //         index = aList.length-1;
+                //     }
+                // }
+                //显示图片
+                aList[index].className = "show";
+            }
+            //右点击按钮
+            oRight.onclick = function(){
+                aList[index].className = "";
+                index++;
+                         //判断单边或循环
+                if( index > aList.length-1 ){
+                    index = bool?aList.length-1:0;
+                }
+                // if ( index > aList.length-1 ){
+                //     if(bool){
+                //         index = aList.length-1;
+                //     }else{
+                //         index = 0;
+                //     }
+                // }
+                // if(bool){//真为单边
+                //     if( index > aList.length-1){
+                //         index = aList.length-1;
+                //     }
+                // }else{//假为循环
+                //     if( index > aList.length-1 ){
+                //         index = 0;
+                //     }
+                // }
+                           //显示图片
+                aList[index].className = "show";
+            }
+            //模式切换按钮
+            //单边模式
+            aMo[0].onclick = function(){
+                aMo[0].className = "active";
+                aMo[1].className = "";
+                bool = true;
+            }
+            //循环模式
+            aMo[1].onclick = function(){
+                aMo[1].className = "active";
+                aMo[0].className = "";
+                bool = false;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

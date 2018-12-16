@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+            #a{
+                width: 500px;
+                height: 500px;
+                background: url("./img/1.jpg");
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <div id="a"></div>
+        <button id="but">提交</button>
+        <script>
+            let oWrap = document.getElementById("wrap");
+            let oa = document.getElementById("a");
+            let oBut = document.getElementById("but");
+            oBut.onclick = function(){
+                console.log(oWrap.style.display);
+                if(oWrap.style.display === "none"){
+                    oWrap.style.display = "block";
+                }else{
+                    oWrap.style.display = "none";
+                }
+            }
+            //倒三角
+            // for(let a=1;a<10;a++){
+            //     for(let b=1;b<11-a;b++){
+            //         oWrap.innerHTML += (a+'+'+b+'='+(a+b)+" ");
+            //     }
+            //     oWrap.innerHTML += "<br>";
+            // }
+                //正三角
+            // for(let c=1;c<10;c++){
+            //     for(let d=1;d<c+1;d++){
+            //         oa.innerHTML += (c+'+'+d+'='+(c+d)+" ");
+            //     }
+            //     oa.innerHTML += "<br>";
+            // }
+            //正方形
+            // for(let c=1;c<10;c++){
+            //     for(let d=1;d<10;d++){
+            //         oa.innerHTML += (c+'+'+d+'='+(c+d)+" ");
+            //     }
+            //     oa.innerHTML += "<br>";
+            // }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

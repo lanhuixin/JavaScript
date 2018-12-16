@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;user-select: none;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 50px auto 10px;
+            background-color: aqua;
+        }
+        #wrap .part>li{
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 50px;
+            background-color: rgba(0,0,0,.3);
+            z-index: 10;
+            line-height: 50px;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+        }
+            #wrap .part>li:nth-child(2){
+                top: 450px;
+            }
+            #wrap .part>li:nth-child(3),#wrap .part>li:nth-child(4){
+                top: 200px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 30px;
+                text-align: center;
+                color: white;
+                cursor: pointer;
+            }
+            #wrap .part>li:nth-child(4){
+                right: 0;
+            }
+            #wrap .list li:nth-child(1){
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                transition: .5s;
+                background: url('./img/1.jpg');
+            }
+            #but{
+                width: 200px;
+                height: 50px;
+                margin: 0 auto;
+            }
+            #but>li{
+                float: left;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                margin-left: 5px;
+                text-align: center;
+                font-weight: bold;
+                box-shadow: 0 2px 2px black;
+                background-color: cyan;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="part">
+                <li class="top">1/5</li>
+                <li class="bottom">剑士</li>
+                <li class="left"><</li>
+                <li class="right">></li>
+            </ul>
+            <ul class="list">
+                <li></li>
+            </ul>
+        </div>
+        <ul id="but">
+            <li class="normal">正常模式</li>
+            <li class="loop">循环模式</li>
+        </ul>
+        <script>
+            let oTop = document.querySelector("#wrap .part .top");
+            let oBottom = document.querySelector("#wrap .part .bottom");
+            let oRight = document.querySelector("#wrap .part .right");
+            let oLeft = document.querySelector("#wrap .part .left");
+            let oPic = document.querySelectorAll("#wrap .list li ")[0];
+            let oBut = document.querySelectorAll("#but li");
+
+            //复杂写法
+            oPic.style.background = "url('./img/1.jpg')";
+            oBut[0].onclick = function(){
+                oBut[0].style.backgroundColor = "red";
+                oBut[1].style.backgroundColor = "cyan";
+                oRight.onclick = function(){
+                    console.log(oPic.style.background);
+                    if(oPic.style.background === "url(\"./img/1.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/2.jpg')";
+                        oTop.innerHTML = "2/5";
+                        oBottom.innerHTML = "精灵";
+                    }
+                    else if(oPic.style.background === "url(\"./img/2.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/3.jpg')";
+                        oTop.innerHTML = "3/5";
+                        oBottom.innerHTML = "双马尾";
+                    }
+                    else if(oPic.style.background === "url(\"./img/3.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/4.jpg')";
+                        oTop.innerHTML = "4/5";
+                        oBottom.innerHTML = "兔女郎";
+                    }
+                    else if(oPic.style.background === "url(\"./img/4.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/5.jpg')";
+                        oTop.innerHTML = "5/5";
+                        oBottom.innerHTML = "中学生"
+                    }
+                }
+                oLeft.onclick = function(){
+                    if(oPic.style.background === "url(\"./img/5.jpg\")"){// let oNext = document.querySelector("#wrap .list li+li");
+                        oPic.style.cssText = "background: url('./img/4.jpg')"
+                        oTop.innerHTML = "4/5";
+                        oBottom.innerHTML = "兔女郎";
+                    }
+                    else if(oPic.style.background === "url(\"./img/4.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/3.jpg')"
+                        oTop.innerHTML = "3/5";
+                        oBottom.innerHTML = "双马尾";
+                    }
+                    else if(oPic.style.background === "url(\"./img/3.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/2.jpg')"
+                        oTop.innerHTML = "2/5";
+                        oBottom.innerHTML = "精灵";
+                    }
+                    else if(oPic.style.background === "url(\"./img/2.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/1.jpg')"
+                        oTop.innerHTML = "1/5";
+                        oBottom.innerHTML = "剑士";
+                    }
+                }
+            }
+            oBut[1].onclick = function(){
+                oBut[1].style.backgroundColor = "red";
+                oBut[0].style.backgroundColor = "cyan";
+                oRight.onclick = function(){
+                    if(oPic.style.background === "url(\"./img/1.jpg\")"){// let oNext = document.querySelector("#wrap .list li+li");
+                        oPic.style.cssText = "background: url('./img/2.jpg')"
+                        oTop.innerHTML = "2/5";
+                        oBottom.innerHTML = "精灵";
+                    }
+                    else if(oPic.style.background === "url(\"./img/2.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/3.jpg')"
+                        oTop.innerHTML = "3/5";
+                        oBottom.innerHTML = "双马尾";
+                    }
+                    else if(oPic.style.background === "url(\"./img/3.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/4.jpg')"
+                        oTop.innerHTML = "4/5";
+                        oBottom.innerHTML = "兔女郎";
+                    }
+                    else if(oPic.style.background === "url(\"./img/4.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/5.jpg')"
+                        oTop.innerHTML = "5/5";
+                        oBottom.innerHTML = "中学生"
+                    }
+                    else if(oPic.style.background === "url(\"./img/5.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/1.jpg')"
+                        oTop.innerHTML = "1/5";
+                        oBottom.innerHTML = "剑士";
+                    }
+                }
+                oLeft.onclick = function(){
+                    if(oPic.style.background === "url(\"./img/5.jpg\")"){// let oNext = document.querySelector("#wrap .list li+li");
+                        oPic.style.cssText = "background: url('./img/4.jpg')"
+                        oTop.innerHTML = "4/5";
+                        oBottom.innerHTML = "兔女郎";
+                    }
+                    else if(oPic.style.background === "url(\"./img/4.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/3.jpg')"
+                        oTop.innerHTML = "3/5";
+                        oBottom.innerHTML = "双马尾";
+                    }
+                    else if(oPic.style.background === "url(\"./img/3.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/2.jpg')"
+                        oTop.innerHTML = "2/5";
+                        oBottom.innerHTML = "精灵";
+                    }
+                    else if(oPic.style.background === "url(\"./img/2.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/1.jpg')"
+                        oTop.innerHTML = "1/5";
+                        oBottom.innerHTML = "剑士";
+                    }
+                    else if(oPic.style.background === "url(\"./img/1.jpg\")"){
+                        oPic.style.cssText = "background: url('./img/5.jpg')"
+                        oTop.innerHTML = "5/5";
+                        oBottom.innerHTML = "中学生"
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
