@@ -12,64 +12,76 @@
             ol,ul,li{margin:0;padding:0;list-style:none;}
             img{border:none;}
             #wrap{
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
             #wrap li,#bottom li{
                 display: inline-block;
                 width: 65px;
                 height: 25px;
-                border: 1px solid cyan;
+                text-align: center;
+                line-height: 25px;
+                margin: 5px 5px;
+                border: 1px solid blue;
             }
         </style>
     </head>
     <body>
         <ul id="wrap"></ul>
-        <ul id="bottom"></ul>
+        <!--<ul id="bottom"></ul>-->
         <script>
             let oWrap = document.getElementById("wrap");
-            let oBottom = document.getElementById("bottom");
-            for(let i=1;i<=9;i++){
-                for(let j=1;j<i+1;j++){
-                    oWrap.innerHTML += "<li>"+j+'*'+i+'='+i*j+"</li>"+" ";
+            // let oBottom = document.getElementById("bottom");
+            //正三角第一种方法
+            // for(let i=1;i<=9;i++){
+            //     for(let j=1;j<i+1;j++){
+            //         //oWrap.innerHTML += "<li>"+j+'*'+i+'='+i*j+"</li>"+" ";
+            //         oWrap.innerHTML += `<li>${i}*${j}=${i*j}</li>`;
+            //     }
+            //     oWrap.innerHTML += "<br>";
+            // }
+            //更好的方法,不要在for循环中操作DOM
+            let s = "";
+            for(let i=1;i<10/*决定行数*/;i++){
+                let html ="";
+                for(let j=1;j<i+1/*决定列数*/;j++){
+                    html += `<li>${i}*${j}=${i*j}</li>`;
                 }
-                oWrap.innerHTML += "<br>";
+                html+= "<br>";
+                s += html;
             }
-            for(let a=1;a<10;a++){
-                for(let b=1; b<(11-a) ;b++){//列数
-                    // console.log(i);
-                    if(a == 1){//行数
-                        oBottom.innerHTML += "<li>"+a+'*'+b+'='+a*b+"</li>"+" ";
-                    }
-                    if(a != 1){
-                        oBottom.innerHTML += "<li>"+a+'*'+(b+a-1)+'='+a*(b+a-1)+"</li>"+" ";
-                    }
-                    // if(a == 2){
-                    //     oBottom.innerHTML += a+'*'+(b+1)+'='+a*(b+1)+" ";
-                    // }
-                    // if(a == 3){
-                    //     oBottom.innerHTML += a+'*'+(b+2)+'='+a*(b+2)+" ";
-                    // }
-                    // if(a == 4){
-                    //     oBottom.innerHTML += a+'*'+(b+3)+'='+a*(b+3)+" ";
-                    // }
-                    // if(a == 5){
-                    //     oBottom.innerHTML += a+'*'+(b+4)+'='+a*(b+4)+" ";
-                    // }
-                    // if(a == 6){
-                    //     oBottom.innerHTML += a+'*'+(b+5)+'='+a*(b+5)+" ";
-                    // }
-                    // if(a == 7){
-                    //     oBottom.innerHTML += a+'*'+(b+6)+'='+a*(b+6)+" ";
-                    // }
-                    // if(a == 8){
-                    //     oBottom.innerHTML += a+'*'+(b+7)+'='+a*(b+7)+" ";
-                    // }
-                    // if(a == 9){
-                    //     oBottom.innerHTML += a+'*'+(b+8)+'='+a*(b+8)+" ";
-                    // }
+            for(let i=1;i<10;i++){
+                let html = "";
+                for(let j=i;j<10;j++){
+                    html += `<li>${i}*${j}=${i*j}</li>`;
                 }
-                oBottom.innerHTML += "<br>";
+                html+= "<br>";
+                s += html;
             }
+            for(let i=9;i>0;i--){
+                let html = "";
+                for(let j=1;j<=i;j++){
+                    html += `<li>${i}*${j}=${i*j}</li>`;
+                }
+                html += "<br>";
+                s += html;
+            }
+            oWrap.innerHTML = s;
+
+            //倒三角,复杂方法
+            // for(let a=1;a<10;a++){//行数
+            //     for(let b=1; b<(11-a) ;b++){//列数
+            //         // console.log(i);
+            //         if(a == 1){
+            //             // oBottom.innerHTML += "<li>"+a+'*'+b+'='+a*b+"</li>"+" ";
+            //             oBottom.innerHTML += `<li>${a}*${b}=${a*b}</li>`;
+            //         }
+            //         if(a != 1){
+            //             // oBottom.innerHTML += "<li>"+a+'*'+(b+a-1)+'='+a*(b+a-1)+"</li>"+" ";
+            //             oBottom.innerHTML += `<li>${a}*${b+a-1}=${a*(b+a-1)}</li>`;
+            //         }
+            //     }
+            //     oBottom.innerHTML += "<br>";
+            // }
         </script>
     </body>
 </html>
