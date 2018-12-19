@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                margin: 20px auto;
+                border: 1px dashed black;
+            }
+            #wrap div{
+                position:absolute;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                line-height: 100px;
+                font-size: 20px;
+                font-weight: bolder;
+                color: black;
+                background-color: cyan;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                num = 4,
+                html = "";
+            let mid = (num+1)/2;
+            oWrap.style.width = `${(num+1)*100}px`;
+            oWrap.style.height = `${(num+1)*100}px`;
+                             //左尖括号
+            // for(let i=0;i<=num;i++){
+            //     //正常判断
+            //     if(i<mid){
+            //         html += `<div style="margin-left: ${i*100}px;">${i}</div>`;
+            //     }
+                // else{
+                //     html += `<div style="margin-left: ${(num-i)*100}px;">${i}</div>`;
+                // }
+            //     //三目
+            //     let x = i<mid?i:num-i;
+            //     html += `<div style="margin-left: ${x*100}px;">${i}</div>`;
+            // }
+
+                            //右尖括号
+            // for(let i=0;i<=num;i++){
+            //     let x = num;
+            //     //判断奇偶
+            //     if(x%2){
+            //          x = x-1;
+            //     }else{
+            //         x = x;
+            //     }
+            //     //正常判断
+            //     if(i<mid){
+            //         html += `<div style="margin-left: ${(x/2-i)*100}px;">${i}</div>`;
+            //     }
+            //     else{
+            //         html += `<div style="margin-left: ${(i-(x/2+1))*100}px;">${i}</div>`;
+            //     }
+            // }
+
+                        //下尖括号
+            for(let i=0;i<1;i++){
+                for(let j=0;j<=num;j++){
+                    if(j<mid){
+                        html += `<div style="top: ${j*100}px;left: ${j*100}px">${j}</div>`;
+                    }
+                    else{
+                        html += `<div style="top: ${(num-j)*100}px;left: ${j*100}px">${j}</div>`;
+                    }
+                }
+
+            }
+                        //上尖括号
+            // for(let i=0;i<1;i++){
+            //     for(let j=0;j<=num;j++){
+            //         let x = num;
+            //             //判断奇偶
+            //             if(x%2){
+            //                 x = x-1;
+            //             }else{
+            //                 x = x;
+            //             }
+            //         if(j<mid){
+            //             html += `<div style="position:absolute;top: ${(x/2-j)*100}px;left: ${j*100}px">${j}</div>`;
+            //         }
+            //         else{
+            //             html += `<div style="position:absolute;top: ${(j-(x/2+1))*100}px;left: ${j*100}px">${j}</div>`;
+            //         }
+            //     }
+            // }
+            oWrap.innerHTML = html;
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

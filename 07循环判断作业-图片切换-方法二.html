@@ -137,6 +137,8 @@
                 if( index < 0 ){
                     index = bool?0:aList.length-1;
                 }
+                            //显示图片
+                aList[index].className = "show";
                 // if ( index < 0 ){
                 //     if(bool){
                 //         index = 0;
@@ -153,8 +155,7 @@
                 //         index = aList.length-1;
                 //     }
                 // }
-                //显示图片
-                aList[index].className = "show";
+
             }
             //右点击按钮
             oRight.onclick = function(){
@@ -164,6 +165,8 @@
                 if( index > aList.length-1 ){
                     index = bool?aList.length-1:0;
                 }
+                            //显示图片
+                aList[index].className = "show";
                 // if ( index > aList.length-1 ){
                 //     if(bool){
                 //         index = aList.length-1;
@@ -180,8 +183,7 @@
                 //         index = 0;
                 //     }
                 // }
-                           //显示图片
-                aList[index].className = "show";
+
             }
             //模式切换按钮
             //单边模式

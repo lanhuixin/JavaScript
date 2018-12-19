@@ -43,7 +43,7 @@
             let s = "";
             for(let i=1;i<10/*决定行数*/;i++){
                 let html ="";
-                for(let j=1;j<i+1/*决定列数*/;j++){
+                for(let j=1;j<=i/*决定列数*/;j++){
                     html += `<li>${i}*${j}=${i*j}</li>`;
                 }
                 html+= "<br>";

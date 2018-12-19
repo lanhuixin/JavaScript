@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap div{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+            border: 1px solid black;
+            margin-left: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <button id="but">点击生成十个div</button>
+        <div id="wrap"></div>
+        <script>
+            let oWrap = document.getElementById("wrap");
+            let oBut = document.getElementById("but");
+
+            oBut.onclick = function(){
+                let a = "";
+                for(let i=0;i<10;i++){
+                    a+= `<div></div>`;
+                }
+                oWrap.innerHTML += a;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
