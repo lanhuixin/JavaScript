@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select: none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap .list{
+            width: 500px;
+            height: 100px;
+            margin: 100px auto;
+            background-color: cyan;
+        }
+            #wrap .list li:nth-child(1){
+                float: left;
+                width: 200px;
+                height: 100%;
+                line-height: 100px;
+                color: red;
+            }
+            #wrap .list li:nth-child(1) span{
+                display: inline-block;
+                width: 19px;
+                height: 19px;
+                vertical-align: -3px;
+                background: url("./img/star.png") no-repeat;
+                cursor: pointer;
+            }
+            #wrap .list li:nth-child(1) .show{
+                background-position: 0 -27px;
+            }
+            #wrap .list li:nth-child(2){
+                float: left;
+                width: 200px;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+                margin-top: 10px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <li>
+                    星级评分: <span></span><span></span><span></span><span></span><span></span>
+                </li>
+                <li>请给出你心中分数</li>
+            </ul>
+        </div>
+        <script>
+            let olist = document.getElementsByClassName("list")[0],
+                asp = document.querySelectorAll("#wrap .list li:nth-child(1) span"),
+                oli = document.querySelector("#wrap .list li:nth-child(2)"),
+                index = -1,
+                arrLi=[
+                    "请给出你心中分数",
+                    "很差",
+                    "一般",
+                    "还行",
+                    "不错",
+                    "推荐"
+                ];
+                lenth = asp.length;
+            for(let i=0;i<lenth;i++){
+                asp[i].onmouseenter = function(){
+                    for(let j=0;j<lenth;j++){
+                        asp[j].className = j<=i?"show":"";
+                        // if(j<=i){
+                        //     asp[j].className = "show";
+                        // }else{
+                        //     asp[j].className = "";
+                        // }
+                    };
+                    oli.innerHTML = arrLi[i+1];
+
+                    //先知道当前序号--已知i
+                    //从0 到序号的span加名字
+                    // for(let j=0;j<=i;j++){
+                    //     asp[j].className = "show";
+                    // }
+                    // //从序号到lenth的span去掉名字
+                    // for(let j=i+1;j<lenth;j++){
+                    //     asp[j].className = "";
+                    // }
+                    //点击事件直接在鼠标移动里实现,无需过多事件
+                    asp[i].onclick = function(){
+                        index = i;
+                    };
+                }
+                olist.onmouseleave = function(){
+                    for(let i=0;i<lenth;i++){
+                        //保证鼠标移出时,点击的星星还在
+                        asp[i].className = i<=index?"show":"";
+                    }
+                    oli.innerHTML = arrLi[index+1];
+                }
+            }
+            // (function(){
+            //
+            // })()
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

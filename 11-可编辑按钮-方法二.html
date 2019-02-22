@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select: none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            input{
+                display: none;
+                width: 500px;
+                height: 25px;
+                outline: none;
+                background-color: white;
+            }
+            #wrap .list{
+                width: 800px;
+                height: 800px;
+                margin: 10px auto;
+            }
+            #wrap .list li{
+                width: 100%;
+                height: 50px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid orange;
+            }
+            #wrap .list .but{
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <li>
+                    <span>点击修改</span>
+                    <input type="text" value="点击修改">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <span>点击修改</span>
+                    <input type="text" value="点击修改">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <span>点击修改</span>
+                    <input type="text" value="点击修改">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <span>点击修改</span>
+                    <input type="text" value="点击修改">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <span>点击修改</span>
+                    <input type="text" value="点击修改">
+                    <div class="but">编辑</div>
+                </li>
+            </ul>
+        </div>
+        
+        <script>
+            let but = document.querySelectorAll("#wrap .list li .but"),
+                input = document.querySelectorAll("#wrap .list li input"),
+                span = document.querySelectorAll("#wrap .list li span"),
+                lenth = but.length,
+                bool = true;
+            function a(i) {//为避免重复使用此函数,方便维护
+                if(bool){
+                    but[i].innerHTML = "确认";
+                    input[i].style.display = "inline-block";
+                    span[i].style.display = "none";
+                    bool = false;
+                }else{
+                    but[i].innerHTML = "编辑";
+                    input[i].style.display = "none";
+                    span[i].style.display = "inline-block";
+                    span[i].innerHTML = input[i].value;
+                    bool = true;
+                }
+            }
+            for(let i=0;i<lenth;i++){
+                but[i].onclick = function () {//用一个空壳函数包裹目标函数,减少多次定义
+                    a(i);
+                };
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

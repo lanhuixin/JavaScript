@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p class="a"></p>
+            <p class="a"></p>
+            <p class="a"></p>
+        </div>
+        <script>
+            // function a(){
+            //     let b = 6;
+            //     if(b !==6){
+            //         var c = 7;
+            //     }
+            //     console.log(c);//undefined
+            // }
+            // a();
+            // function a(){
+            //     let b = 6;
+            //     if(b ===6){
+            //         let c = 7;
+            //     }
+            //     console.log(c);//报错
+            // }
+            // a();
+            //let定义的变量只在{}中起作用
+            // function a(){
+            //     let b = 6;
+            //     if(b ===6){
+            //         var c = 7;
+            //     }
+            //     console.log(c);// 7
+            // }
+            // a();
+            //var定义的变量也只能在离他最近的函数中使用
+            // function a(){
+            //     var c =10;
+            // }
+            // console.log(c);
+            //
+                        //元素获取
+            // let oa = document.querySelectorAll("#wrap .a");
+            // oa[0].className = "b";
+            // oa[0].innerHTML = "123456";静态获取
+
+            let oa = document.getElementsByClassName("a");
+            oa[0].className = "b";
+            oa[0].innerHTML =  "123456";//动态获取
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select: none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            input{
+                width: 500px;
+                height: 25px;
+                outline: none;
+                border: none;
+                background-color: white;
+            }
+            #wrap .list{
+                width: 800px;
+                height: 800px;
+                margin: 10px auto;
+            }
+            #wrap .list li{
+                width: 100%;
+                height: 50px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid orange;
+            }
+            #wrap .list .but{
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background-color: black;
+                color: white;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <li>
+                    <input type="text" value="点击修改" disabled="disabled">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <input type="text" value="点击修改" disabled="disabled">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <input type="text" value="点击修改" disabled="disabled">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <input type="text" value="点击修改" disabled="disabled">
+                    <div class="but">编辑</div>
+                </li>
+                <li>
+                    <input type="text" value="点击修改" disabled="disabled">
+                    <div class="but">编辑</div>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            let but = document.querySelectorAll("#wrap .list li .but"),
+                input = document.querySelectorAll("#wrap .list li input"),
+                lenth = but.length,
+                bool = true;
+            for(let i=0;i<lenth;i++){
+                but[i].onclick = function(){
+                    if(bool){
+                        but[i].innerHTML = "确认";
+                        input[i].style.border = "1px solid black";
+                        input[i].disabled = "";
+                        bool = false;
+                    }else{
+                        but[i].innerHTML = "编辑";
+                        input[i].style.border = "none";
+                        input[i].disabled = "disabled";
+                        bool = true;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

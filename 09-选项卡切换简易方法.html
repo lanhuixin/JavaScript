@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="蓝涩">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;display: block;}
+        #wrap{
+            position: relative;
+            width: 500px;
+            height: 550px;
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap .img{
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+        #wrap .img li{
+            display: none;
+            width: 100%;
+            hieght: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #wrap .img .show{
+            display: block;
+        }
+        #wrap .but{
+            width: 100%;
+            height: 50px;
+        }
+        #wrap .but li{
+            float: left;
+            width: 20%;
+            height: 50px;
+            background-color: darkgray;
+            line-height: 50px;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            font-weight: bolder;
+        }
+        #wrap .but .active{
+            background-color: gray;
+            color: gold;
+        }
+        #wrap .tab li{
+            position: absolute;
+            top: 200px;
+            width: 50px;
+            hight: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: rgba(0,0,0,.5);
+            color: white;
+        }
+        #wrap .tab li:nth-child(1){
+            left: 0;
+        }
+        #wrap .tab li:nth-child(2){
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul class="img">
+            <li class="show"><a href=""><img src="./img/1.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/2.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/3.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/4.jpg" alt=""></a></li>
+            <li><a href=""><img src="./img/5.jpg" alt=""></a></li>
+        </ul>
+        <ul class="tab">
+            <li> < </li>
+            <li> > </li>
+        </ul>
+        <ul class="but">
+            <li class="active">剑士</li>
+            <li>精灵</li>
+            <li>双马尾</li>
+            <li>兔女郎</li>
+            <li>学生妹</li>
+        </ul>
+    </div>
+    <script>
+        let aImg = document.querySelectorAll("#wrap .img li"),
+            aBut = document.querySelectorAll("#wrap .but li"),
+            aTab = document.querySelectorAll("#wrap .tab li"),
+            lenth = aImg.length,
+            index = 0; //定义当前图片号码
+        function change(x){
+            aImg[index].className = "";
+            aBut[index].className = "";
+            index = x;
+            aImg[x].className = "show";
+            aBut[x].className = "active";
+        }
+        for(let i=0;i<lenth;i++){
+            aBut[i].onclick = function(){
+                if( index == i) return;
+                change(i);
+
+            }
+        }
+        //左按钮
+        aTab[0].onclick = function(){
+            let x = index;
+            x--;
+            if(x<0){
+                x = lenth-1;
+            }
+            change(x);
+        }
+        //右按钮
+        aTab[1].onclick = function(){
+            let x = index;
+            x++;
+            if(x>lenth-1){
+                x = 0;
+            }
+            change(x);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

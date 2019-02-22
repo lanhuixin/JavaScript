@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>评论框</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 500px;
+                margin: 50px auto;
+                border: 1px solid black;
+                background-color: cyan;
+            }
+            #text{
+                display: block;
+                width: 80%;
+                height: 200px;
+                margin: 20px auto;
+                font-size: 20px;
+                line-height: 16px;
+                resize: none;
+            }
+            #but{
+                margin-left: 50px;
+            }
+            #wrap .list{
+                width: 80%;
+                margin: 50px auto;
+            }
+            #wrap .list li{
+                margin-top: 10px;
+                border-bottom: 1px dashed black;
+                line-height: 20px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea name="" id="text"></textarea>
+            <button id="but">点击发表你的想法</button>
+            <ul class="list"></ul>
+        </div>
+        <script>
+            let oText = document.getElementById("text"),
+                oBut = document.getElementById("but"),
+                oList = document.querySelector("#wrap .list");
+            oBut.onclick = function(){
+                if (oText.value === '') return;
+                oList.innerHTML += `<li>${oText.value}</li>`
+                oList.innerHTML += '<br>';
+                oText.value = '';
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
