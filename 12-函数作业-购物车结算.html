@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select: none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap{
+            width: 1000px;
+            height: 500px;
+            border-collapse: collapse;
+            margin: 0px auto;
+        }
+            #wrap th,td{
+                width: 250px;
+                height: 150px;
+                text-align: center;
+                border: 1px solid orange;
+            }
+            #wrap th{
+                height: 50px;
+                color: #fff;
+                background-color: magenta;
+            }
+            #wrap tfoot td{
+                width: 250px;
+                height: 50px;
+                border: none;
+                background-color: magenta;
+            }
+            .list{
+                width: 150px;
+                height: 50px;
+                margin: 50px auto;
+            }
+            .list li{
+                float: left;
+                width: 70px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-weight: bolder;
+                font-size: 20px;
+            }
+            .list .num {
+                box-sizing: border-box;
+                border: 1px solid black;
+            }
+            .list li:nth-child(1),.list li:nth-child(3){
+                width: 40px;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="wrap">
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="./img/1.jpg" alt="" width="150" height="120"></td>
+                    <td class="danjia">8</td>
+                    <td>
+                        <ul class="list">
+                            <li class="minus"> - </li>
+                            <li class="num">0</li>
+                            <li class="add"> + </li>
+                        </ul>
+                    </td>
+                    <td class="sum">0</td>
+                </tr>
+                <tr>
+                    <td><img src="./img/2.jpg" alt="" width="150" height="120"></td>
+                    <td class="danjia">10</td>
+                    <td>
+                        <ul class="list">
+                            <li class="minus"> - </li>
+                            <li class="num">0</li>
+                            <li class="add"> + </li>
+                        </ul>
+                    </td>
+                    <td class="sum">0</td>
+                </tr>
+                <tr>
+                    <td><img src="./img/3.jpg" alt="" width="150" height="120"></td>
+                    <td class="danjia">12.5</td>
+                    <td>
+                        <ul class="list">
+                            <li class="minus"> - </li>
+                            <li class="num">0</li>
+                            <li class="add"> + </li>
+                        </ul>
+                    </td>
+                    <td class="sum">0</td>
+                </tr>
+                <tr>
+                    <td><img src="./img/4.jpg" alt="" width="150" height="120"></td>
+                    <td class="danjia">23</td>
+                    <td>
+                        <ul class="list">
+                            <li class="minus"> - </li>
+                            <li class="num">0</li>
+                            <li class="add"> + </li>
+                        </ul>
+                    </td>
+                    <td class="sum">0</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td></td>
+                <td></td>
+                <td>已选中商品: <span id="goods">0</span> 个</td>
+                <td>合计消费: <span id="price">0</span> ¥</td>
+            </tfoot>
+        </table>
+        <script>
+            (function(){
+
+                let data = [{id:0,danjia:8,num:0},{id:1,danjia:10,num:0},{id:2,danjia:12.5,num:0},{id:3,danjia:23,num:0}],
+                    add = document.querySelectorAll("#wrap .list .add"),
+                    num = document.querySelectorAll("#wrap .list .num"),
+                    minus = document.querySelectorAll("#wrap .list .minus"),
+                    ogoods = document.getElementById("goods"),
+                    oprice = document.getElementById("price"),
+                    otd = document.getElementsByClassName("sum"),
+                    lenth =add.length;
+                function change(i){
+                    num[i].innerHTML = data[i].num;
+                    otd[i].innerHTML = data[i].danjia * data[i].num;
+                    let index = 0,index1 = 0;
+                    for(let i=0;i<lenth;i++){
+                        index += data[i].num;
+                        index1 += data[i].danjia * data[i].num;
+                    }
+                    ogoods.innerHTML = index;
+                    oprice.innerHTML = index1;
+                }
+                for(let i=0;i<lenth;i++){
+                    add[i].onclick = function(){
+                        data[i].num++;
+                        change(i);
+                    };
+                    minus[i].onclick = function(){
+                        if(data[i].num>0){
+                            data[i].num--;
+                            change(i);
+                        }
+                    }
+                }
+            })();
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

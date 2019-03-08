@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>星级评分</title>
         <meta name="keywords" content="关键词">
         <meta name="description" content="描述">
         <meta name="author" content="蓝涩">
@@ -15,7 +15,6 @@
             width: 500px;
             height: 100px;
             margin: 100px auto;
-            background-color: cyan;
         }
             #wrap .list li:nth-child(1){
                 float: left;
@@ -69,9 +68,10 @@
                     "推荐"
                 ];
                 lenth = asp.length;
-            for(let i=0;i<lenth;i++){
+            for(let i=0;i<lenth;i++){//鼠标移入循环,选中每一个span标签
                 asp[i].onmouseenter = function(){
-                    for(let j=0;j<lenth;j++){
+                    for(let j=0;j<lenth;j++){//当前序号
+                        asp[j].className = j<=i?"show":"";//三目运算法更简便
                         // if(j<=i){
                         //     asp[j].className = "show";
                         // }else{
@@ -89,6 +89,7 @@
                     // for(let j=i+1;j<lenth;j++){
                     //     asp[j].className = "";
                     // }
+
                     //点击事件直接在鼠标移动里实现,无需过多事件
                     asp[i].onclick = function(){
                         index = i;
