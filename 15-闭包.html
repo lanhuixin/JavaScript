@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            // fn()();
+            // var a = 0;
+            // function fn(){
+            //     alert(a);
+            //     var a = 3;
+            //     function c(){
+            //         alert(a)
+            //     }
+            //     return c;
+            // }
+            /*
+            1.定义
+                var a;
+                function fn(){...}
+            2.执行
+                fn() ---->新作用域
+                        1.定义
+                            var a;
+                            function(){...}
+                        2.执行:
+                            alert(a);  //undefined
+                            a=3;
+                            return c;
+              fu()() ----->c()产生新的作用域
+                                1.定义
+                                2.执行
+                                    alert(a); //3
+            */
+            var a = 5;
+            function fn(){
+                var a = 10;
+                alert(a);
+                function b(){
+                    a ++;
+                    alert(a);
+                }
+                return b;
+            }
+            var c = fn(  );  //10
+            c();           //11
+            fn()();        //10 11
+            c();           //12
+
+
+            //     function fn(){
+            //         alert(2);
+            //         alert(1);
+            //         return "lan";
+            //     }
+            //     let e = fn();
+            //     console.log(e);
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
