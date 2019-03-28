@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif; user-select: none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            body{
+                background-color: pink;
+            }
+            #right{
+                position: fixed;
+                top: 236px;
+                right: 0;
+                width: 35px;
+                height: 100px;
+                background-color: black;
+            }
+            #right .cart{
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                height: 100%;
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+                transition: .5s;
+                cursor: pointer;
+            }
+            #right .cart:hover{
+                background-color: red;
+            }
+            #right .cart p{
+                width: 12px;
+                height: 12px;
+                margin: 0 auto;
+            }
+            #right .sidebar{
+                position: absolute;
+                top: -236px;
+                right: -35px;
+                width: 35px;
+                height: 753px;
+                z-index: 1;
+                background-color: black;
+                transition: .5s;
+            }
+            #right .sidebar .list li{
+                position: relative;
+                margin-bottom: 8px;
+                transition: .5s;
+                cursor: pointer;
+            }
+            #right .sidebar .list li:before{
+                visibility: hidden;
+                opacity: 0;
+                content: '会员权益';
+                position: absolute;
+                top: 0;
+                left: -140px;
+                width: 112px;
+                height: 39px;
+                color: #fff;
+                text-align: center;
+                line-height: 38px;
+                font-size: 12px;
+                font-weight: bold;
+                background-color: rgb(73,73,73);
+                transition: .5s;
+                z-index: 3;
+                cursor: pointer;
+            }
+            #right .sidebar .list li:nth-child(2):before{
+                content: '我的资产';
+            }
+            #right .sidebar .list li:nth-child(3):before{
+                content: '我的收藏';
+            }
+            #right .sidebar .list li:nth-child(4):before{
+                content: '我看过的';
+            }
+            #right .sidebar .list li:nth-child(5):before{
+                content: '我要充值';
+            }
+            #right .sidebar .list li:after{
+                visibility: hidden;
+                opacity: 0;
+                content: '';
+                position: absolute;
+                top: 9px;
+                right: 47px;
+                width: 0;
+                height: 0;
+                border-width: 8px;
+                border-style: solid;
+                border-color: transparent transparent transparent rgb(73,73,73);
+                z-index: 4;
+                transition: .5s;
+                cursor: pointer;
+            }
+            #right .sidebar .list li:nth-child(1){
+                margin: 193px 0 108px 0;
+            }
+            #right .sidebar .list li:hover{
+                background-color: red;
+            }
+            #right .sidebar .list li:hover:before{
+                visibility: visible;
+                opacity: 1;
+                left: -112px;
+            }
+            #right .sidebar .list li:hover:after{
+                visibility: visible;
+                opacity: 1;
+                right: 20px;
+            }
+            #right:hover .sidebar{
+                right: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="right">
+                <div class="cart">
+                    <img src="./img/mbar-tab-logo-cart-nologin-1x.png" alt="">
+                    <p>购物车</p>
+                </div>
+                <div class="sidebar">
+                    <ul class="list">
+                        <li><img src="./img/tab-logo-prof-1x.png" alt=""></li>
+                        <li><img src="./img/mbar-tab-logo-asset-1x.png" alt=""></li>
+                        <li><img src="./img/3.png" alt=""></li>
+                        <li><img src="./img/4.png" alt=""></li>
+                        <li><img src="./img/5.png" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            let cart = document.getElementsByClassName("cart")[0],
+                s_img = document.querySelector(".cart img");
+            cart.onmouseenter =function(){
+                s_img.src = "./img/mbar-tab-logo-cart-1x.png";
+                }
+            cart.onmouseleave =function(){
+                s_img.src = "./img/mbar-tab-logo-cart-nologin-1x.png";
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

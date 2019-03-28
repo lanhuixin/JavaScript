@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 500px;
+                margin: 50px auto;
+                user-select: none;
+            }
+            #wrap .list sapn{
+                display: block;
+                width: 100%;
+                height: 50px;
+                background-color: pink;
+                text-align: center;
+                line-height: 50px;
+                font-size: 30px;
+                cursor: pointer;
+            }
+            #wrap .list{
+                box-sizing: border-box;
+                border: 1px solid black;
+            }
+            #wrap .list .friend li{
+                width: 100%;
+                height: 25px;
+                text-align: center;
+                line-height: 25px;
+                font-size: 20px;
+                border-bottom: 1px dashed black;
+            }
+            #wrap .list .friend li:hover{
+                background-color: #eee;
+            }
+            #wrap .list .friend{
+                display: none;
+            }
+            #wrap .list .friend.show{
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="list">
+                <sapn id="top">同事</sapn>
+                <ul class="friend">
+                    <li>小赤</li>
+                    <li>小城</li>
+                    <li>小黄</li>
+                    <li>小绿</li>
+                </ul>
+            </div>
+            <div class="list">
+                <sapn id="top">朋友</sapn>
+                <ul class="friend">
+                    <li>小青</li>
+                    <li>小兰</li>
+                    <li>小紫</li>
+                    <li>小溪</li>
+                </ul>
+            </div>
+            <div class="list">
+                <sapn id="top">学生</sapn>
+                <ul class="friend">
+                    <li>小西</li>
+                    <li>小东</li>
+                    <li>小南</li>
+                    <li>小北</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            (function(){
+
+                let aTop = document.querySelectorAll(".list #top"),
+                    aUl = document.querySelectorAll(".list ul"),
+                    index =0;
+                    lenth = aTop.length;
+                for(let i=0;i<lenth;i++){
+                    aTop[i].onclick = function(){
+                        index=i;
+                       for(let j=0;j<lenth;j++){
+                           if( index === j ){
+                               aUl[j].classList.add("show");
+                           }else{
+                               aUl[j].classList.remove("show");
+                           }
+                       }
+                    }
+                }
+            })();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

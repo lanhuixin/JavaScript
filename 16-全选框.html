@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;user-select: none;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:500px;
+                height: 500px;
+                margin: 100px auto;
+                border: 1px solid #000;
+            }
+            .list label{
+                cursor: pointer;
+            }
+             #box6{
+                margin-top: 50px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="list">
+                <input type="checkbox" id="box1"><label for="box1">苹果</label>
+                <input type="checkbox" id="box2"><label for="box2">橘子</label>
+                <input type="checkbox" id="box3"><label for="box3">梨子</label>
+                <input type="checkbox" id="box4"><label for="box4">菠萝</label>
+                <input type="checkbox" id="box5"><label for="box5">火龙果</label>
+            </div>
+            <input type="checkbox" id="box6"><label for="box6">全选</label>
+        </div>
+
+        <script>
+            let aInp = document.querySelectorAll("#wrap .list input"),
+                obox6 = document.getElementById("box6"),
+                lenth = aInp.length,
+                num = 0;
+            obox6.onchange = function(){
+                for(let i=0;i<lenth;i++){
+                    if(this.checked){
+                        aInp[i].checked = true;
+                    }
+                }
+            }
+            for (let i=0;i<lenth;i++){
+                aInp[i].onchange = function(){
+                    //方法二
+                    if(this.checked){
+                        num++;
+                    }else{
+                        num--;
+                    }
+                    obox6.checked = num===lenth;
+
+                    //方法一
+                    // let bool = true;
+                    // for(let j=0;j<lenth;j++){
+                    //     if(!aInp[j].checked){
+                    //         bool = false;
+                    //         break;
+                    //     }
+                    // }
+                    // obox6.checked = bool;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

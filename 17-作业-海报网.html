@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select: none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            a{list-style: none;color: black; text-decoration: none;}
+            img{border:none;}
+            .long{
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            #wrap{
+                position: relative;
+                width: 1080px;
+                margin: 50px auto;
+            }
+            #wrap .part{
+                width: 1080px;
+                height: 40px;
+                background-color: rgb(245,245,245);
+                margin: 0 auto 20px
+            }
+            #wrap .top,#wrap .bottom{
+                width: 1080px;
+                height: 7px;
+                margin: 0 auto 10px;
+                background: url("./img/HW17/nstripebg.png");
+            }
+            #wrap .bottom{
+                position: absolute;
+                top: 387px;
+                left: 0;
+            }
+            #wrap .part .bar{
+                position: relative;
+                float: left;
+                text-align: center;
+                padding-right: 38px;
+                line-height: 40px;
+            }
+            #wrap .part .bar:nth-child(1):before{
+                float: left;
+                content: '独家精品策划';
+                width: 132px;
+                height: 40px;
+                margin-right: 38px;
+                background-color: black;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                line-height: 40px;
+
+            }
+            #wrap .part .bar:nth-child(1):after{
+                position: absolute;
+                top: 13px;
+                left: 122px;
+                content: '';
+                width: 15px;
+                height: 15px;
+                transform: rotate(45deg);
+                background-color: black;
+            }
+            .part .bar .list{
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0px;
+                width: 1080px;
+                height: 310px;
+                background-color: #fff;
+                transition: .5s;
+            }
+            .part .bar .list1{
+                left: -240px;
+            }
+            .part .bar .list2{
+                left: -326px;
+            }
+            .part .bar .list3{
+                left: -428px;
+            }
+            .part .bar .list4{
+                left: -530px;
+            }
+            .part .bar .list.show{
+                display: block;
+            }
+            .part .bar .list li{
+                float: left;
+                width: 340px;
+                height: 310px;
+                font-size: 14px;
+                text-align: left;
+                line-height: 30px;
+            }
+            .part .bar .list li+li{
+                margin-left: 30px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="top"></div>
+            <div class="part">
+                <div class="bar">
+                    <span class="but">全部</span>
+                    <ul class="list show">
+                        <li>
+                            <img src="./img/HW17/1.jpg" alt="">
+                            <a href="">金瀚行走巴黎，高冷外壳下的反转魅力太让人惊喜</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/2.jpg" alt="">
+                            <a href="" class="long">靠衣品“花样逆袭”？其实私底下的蒋欣比你想象的更 时髦!</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/3.jpg" alt="">
+                            <a href="">“鬼马精灵”周冬雨做客「报料」！</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bar">
+                    <span class="but">剧好看</span>
+                    <ul class="list list1">
+                        <li>
+                            <img src="./img/HW17/4.jpg" alt="">
+                            <a href="">金亚中时髦的职场穿搭术《名不虚传》！</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/5.jpg" alt="">
+                            <a href="" class="long">剧好看Vol.26：《“吃吃”的爱》小S、林志玲教你穿  &nbsp;&nbsp;出时髦“少女样”！</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/6.png" alt="">
+                            <a href="" class="long">剧好看Vol.25：《不期而遇》“长腿御姐”张雨绮的撩  人时尚经！</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bar">
+                    <span class="but">报尚名来</span>
+                    <ul class="list list2">
+                        <li>
+                            <img src="./img/HW17/2.jpg" alt="">
+                            <a href="" class="long">靠衣品“花样逆袭”？其实私底下的蒋欣比你想象的更  时髦！</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/7.jpg" alt="">
+                            <a href="">谁说郭碧婷只能当“初恋”？好气质的她不需要标签</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/8.jpg" alt="">
+                            <a href="">爱笑的女人不会老？陈意涵冻龄的秘诀大概就是这样！</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bar">
+                    <span class="but">摩范先生</span>
+                    <ul class="list list3">
+                        <li>
+                            <img src="./img/HW17/1.jpg" alt="">
+                            <a href="">金瀚行走巴黎，高冷外壳下的反转魅力太让人惊喜</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/9.jpg" alt="">
+                            <a href="">青春该有的样子，“彪悍”少年侯明昊的圣诞情书</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/10.jpg" alt="">
+                            <a href="">从前为你写诗的吴克群现在在干嘛？我们帮你</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bar">
+                    <span class="but">报料</span>
+                    <ul class="list list4">
+                        <li>
+                            <img src="./img/HW17/3.jpg" alt="">
+                            <a href="">“鬼马精灵”周冬雨做客「报料」！</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/11.jpg" alt="">
+                            <a href="">两极分化的双子座代表谭松韵做客「报料」！</a>
+                        </li>
+                        <li>
+                            <img src="./img/HW17/12.jpg" alt="">
+                            <a href="">没想到李溪芮最想合作的是TF老Boy!</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        
+        <script>
+            let bar = document.querySelectorAll("#wrap .part .bar"),
+                spn = document.querySelectorAll("#wrap .part .bar .but"),
+                alist = document.querySelectorAll("#wrap .part .bar .list"),
+                lenth = spn.length;
+            for(let i=0;i<lenth;i++){
+                bar[i].onmouseenter = function(){
+                    alist[i].classList.add("show");
+                    bar[i].style.color = "red";
+                    }
+                bar[i].onmouseleave = function(){
+                    alist[i].classList.remove("show");
+                    alist[0].classList.add("show");
+                    bar[i].style.color = "#000";
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
