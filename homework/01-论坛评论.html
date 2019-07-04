@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 500px;
+                margin: auto;
+            }
+            #wrap .talk{
+                width: 500px;
+                height: 300px;
+                resize: none;
+            }
+            .word{
+                width: 500px;
+                margin: 0 auto;
+            }
+            .word li{
+                margin-top: 30px;
+                border-bottom: 1px dashed gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea class="talk"></textarea>
+            <button id="but">提交</button>
+        </div>
+        <ul class="word"></ul>
+        <script>
+          let otalk = document.getElementsByClassName('talk')[0],
+              obut = document.getElementById('but'),
+              oword = document.getElementsByClassName('word')[0];
+          obut.onclick = function(){
+              oword.innerHTML += '<li>'+ otalk.value +'</li>';
+              otalk.value = "";
+          }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        
+        <script>
+            //以数组的方式计算位数,从0开始
+            let a = "我爱罗舒婷";
+            let b = "";
+            for(let i=0;i<a.length;i++) {
+                console.log(a.charCodeAt(i)+520);
+                // let code = a.charCodeAt(i)+520;
+                // b += String.fromCharCode(code);
+            }
+            let e = "我爱罗舒婷";
+            console.log(e.substring(1, 3));
+            console.log(e.slice(1, 3));
+            console.log(e.indexOf("爱"));
+
+
+            //万能数组添加方法 --->正常的计数方式,从1开始算
+            let c = ["A","B","C","D"];
+            c.splice(4,0,"E");
+            console.log(c);
+            let f = "asdfg";
+            console.log(f.toLocaleUpperCase());
+            let g = [11,45,86,25,98,75];
+            g.reverse();
+            console.log(g);
+            let h = [2,11,45,86,25,98,75];
+            let i = h.sort();//sort的返回值等于改变后数组(从小到大排序后)本身
+            console.log(i);//[11, 25, 45, 75, 86, 98]
+            console.log(i === h);//true
+            h.reverse();//reverse的返回值等于改变后数组(从小到大排序后)本身
+            console.log(h);
+            let j = [11,2,45,86,25,98,75];
+            j.sort(function (a,b) {
+                return a-b;//从小到大
+                // return b-a;从大到小
+             })
+            console.log(j);
+
+            let tab = document.getElementsByClassName("tab");
+            console.log( Array.isArray(tab) );//false
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
