@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;user-select: none;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #img{
+                position: relative;
+                width: 700px;
+                height: 500px;
+                margin: 0 auto;
+            }
+            #img li{
+                display: none;
+                position: absolute;
+            }
+            #img li::before,#img li::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0,0,0,.5);
+                width: 700px;
+                height: 30px;
+                text-align: center;
+                color: #fff;
+            }
+            #img li::after{
+                top: 470px;
+            }
+            #img li:nth-child(1)::before{
+                content: '1/4';
+            }
+            #img li:nth-child(2)::before{
+                content: '2/4';
+            }
+            #img li:nth-child(3)::before{
+                content: '3/4';
+            }
+            #img li:nth-child(4)::before{
+                content: '4/4';
+            }
+            #img li:nth-child(1)::after{
+                content: '崩坏1';
+            }
+            #img li:nth-child(2)::after{
+                content: '崩坏2';
+            }
+            #img li:nth-child(3)::after{
+                content: '崩坏3';
+            }
+            #img li:nth-child(4)::after{
+                content: '崩坏4';
+            }
+            #but{
+                position: relative;
+                width: 700px;
+                margin: 50px auto;
+                text-align: center;
+            }
+            #but .left,#but .right{
+                position: absolute;
+                top: -300px;
+                left: 0;
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                font-size: 30px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                z-index: 2;
+                cursor: pointer;
+            }
+            #but .right{
+                left: 650px;
+            }
+            #img .show{
+                display: block;
+            }
+            #but .active{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="img">
+                <li class="show"><img src="img/9-1.jpg" alt="" width="700" height="500"></li>
+                <li><img src="img/9-2.jpg" alt="" width="700" height="500"></li>
+                <li><img src="img/9-3.jpg" alt="" width="700" height="500"></li>
+                <li><img src="img/9-4.jpg" alt="" width="700" height="500"></li>
+            </ul>
+            <div id="but">
+                <div class="left"> < </div>
+                <div class="right"> > </div>
+                <button class="active">正常模式</button>
+                <button>循环模式</button>
+            </div>
+
+        </div>
+        
+        <script>
+            let oleft = document.getElementsByClassName('left')[0],
+                oright = document.getElementsByClassName('right')[0],
+                alist = document.querySelectorAll('#img li'),
+                abut = document.querySelectorAll('#but button'),
+                length = alist.length,
+                bool = true,
+                first = 0;
+            oleft.onclick = function() {
+                alist[first].className = '';
+                first--;
+                if( first < 0 ){
+                    first = bool?0:length-1;
+                }
+                alist[first].className = 'show';
+                }
+            oright.onclick = function () {
+                alist[first].className = '';
+                first++;
+                if( first > length-1 ){
+                    first = bool?length-1:0;
+                }
+                alist[first].className = 'show';
+            }
+            abut[0].onclick = function () {
+                abut[0].className = 'active';
+                abut[1].className = '';
+                bool = true;
+            }
+            abut[1].onclick = function () {
+                abut[1].className = 'active';
+                abut[0].className = '';
+                bool = false;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
