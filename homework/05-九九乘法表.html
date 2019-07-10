@@ -39,6 +39,12 @@
                 }
                 alist.innerHTML += "<br>";//换行
             }
+            for(let i=9;i>=1;i--){
+                for(let j=1;j<=i;j++){
+                    alist.innerHTML += `<li>${i}*${j}=${i*j}</li>`;
+                }
+                alist.innerHTML += "<br>";
+            }
         </script>
     </body>
 </html>

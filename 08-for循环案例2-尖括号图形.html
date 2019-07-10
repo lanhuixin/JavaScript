@@ -33,9 +33,14 @@
         <div id="wrap"></div>
         <script>
             let oWrap = document.getElementById("wrap"),
-                num = 4,
-                html = "";
-            let mid = (num+1)/2;
+                num = 5,
+                html = "",
+                mid = 0;
+            if(num % 2 ){
+                mid =(num+1)/2
+            }else{
+                mid = num/2;
+            }
             oWrap.style.width = `${(num+1)*100}px`;
             oWrap.style.height = `${(num+1)*100}px`;
                              //左尖括号

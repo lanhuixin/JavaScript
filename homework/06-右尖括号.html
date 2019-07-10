@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+            <style>
+             body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                border: 1px dashed black;
+                margin: 20px auto;
+            }
+            #wrap div{
+                width: 50px;
+                height: 50px;
+                background:#abcdef;
+                line-height: 50px;
+                text-align: center;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            let owrap = document.getElementById('wrap')
+            num =4,
+            mid=0;
+            if(num%2){
+                mid=(num+1)/2;
+            }else{
+                mid=num/2;
+            }
+            owrap.style.width = (num+1)*50 +'px';
+            owrap.style.height = (num+1)*50 +'px';
+            for(let i=0;i<=num;i++){
+                if(i<=mid){
+                    owrap.innerHTML += `<div style="margin-left: ${i*50}px">${i}</div>`;
+                }else{
+                    owrap.innerHTML += `<div style="margin-left: ${(num-i)*50}px">${i}</div>`;
+                }
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
