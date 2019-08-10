@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 500px;
+                height: 500px;
+                border-radius: 250px;
+                margin: 50px auto;
+                border: 1px solid #bbb;
+            }
+            .b{
+                position: absolute;
+                top: 250px;
+                left: 250px;
+                width: 250px;
+                height: 1px;
+                transition: 5s;
+                transform: rotate(0deg);
+                transform-origin: top left;
+                /*旋转点定位*/
+                animation: show 10s linear infinite;
+
+            }
+            .b:before{
+                content: '';
+                position: absolute;
+                top: -4px;
+                left: 245px;
+                width: 10px;
+                height: 10px;
+                border-radius: 5px;
+                background-color: red;
+            }
+            @keyframes show {
+                50%{
+                    transform: rotate(0deg);
+                }
+                50%{
+                    transform: rotate(180deg);
+                }
+                100%{
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="b"></div>
+        </div>
+
+        
+        <script>
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

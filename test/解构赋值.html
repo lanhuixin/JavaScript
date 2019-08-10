@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            let data = [
+                {id:0,name:'lan',age:18},
+                {id:1,name:'lwe',age:45},
+                {id:2,name:'lqr',age:28},
+                {id:3,name:'laf',age:19},
+                {id:4,name:'lff',age:64},
+                {id:5,name:'lui',age:34},
+            ],
+                wrp = document.getElementById('wrap'),
+            len = data.length,
+            html = '';
+            (function a(da){
+                for(let i=0;i<len;i++){
+                    let thisdata = da[i];
+                    let {id,name,age} = thisdata;
+                        html += `<li>${id}:${name}:${age}</li>`;
+                }
+                wrp.innerHTML = html;
+            })(data)
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

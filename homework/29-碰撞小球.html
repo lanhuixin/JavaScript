@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                background-color: magenta;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <script>
+            let ow = document.getElementById('wrap');
+            let pl = ow.offsetLeft,
+                pt = ow.offsetTop,
+                mw = window.innerWidth - ow.offsetWidth,
+                mh = window.innerHeight - ow.offsetHeight,
+                spx = 7,
+                spy = 7;
+            window.onresize = function(){
+                mw = window.innerWidth - ow.offsetWidth,
+                mh = window.innerHeight - ow.offsetHeight;
+            }
+            function m(){
+                pl += spx;
+                pt += spy;
+                if(pl >= mw){
+                    pl = mw;
+                    spx = -spx;
+                }
+                if(pl < 0){
+                    pl = 0;
+                    spx = -spx;
+                }
+                if(pt >= mh){
+                    pt = mh;
+                    spy = -spy;
+                }
+                if(pt < 0){
+                    pt = 0;
+                    spy = -spy;
+                }
+                ow.style.left = pl+'px';
+                ow.style.top = pt+'px';
+                requestAnimationFrame(m);
+            }
+            requestAnimationFrame(m);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

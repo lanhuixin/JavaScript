@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 600px;
+                height: 500px;
+                margin: 50px auto;
+                text-align: center;
+
+            }
+            span{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--<p><h1>404~~页面走丢了</h1></p>-->
+            <!--<div><span>10</span>秒后,跳转到<a href="http://www.baidu.com">主页</a></div>-->
+            <h1></h1>
+        </div>
+        
+        <script>
+            let sp = document.querySelector('h1'),
+                y = new Date(2020,0,25);
+            function fn(){
+                let x = new Date(),
+                    D = Math.floor((y-x)/(1000 * 60 * 60 * 24)),
+                    H = Math.floor((y-x)/(1000 * 60 * 60 )%60),
+                    M = Math.floor((y-x)/(1000 * 60 )%60),
+                    S = Math.floor((y-x)/(1000 )%60);
+                if(D<10) D="0"+D;
+                if(H<10) H="0"+H;
+                if(M<10) M="0"+M;
+                if(S<10) S="0"+S;
+                sp.innerHTML = `距离春节还有<span>${D}</span>天<span>${H}</span>小时<span>${M}</span>分<span>${S}</span>秒`
+            }
+            setInterval(fn,1000);
+
+
+
+
+            // sp.innerHTML = Math.floor(a);
+            // let sp = document.querySelector('div span'),
+            //     index = 10;
+            // function fn(){
+            //     sp.innerHTML = --index;
+            //     if(index===1){
+            //         window.location.href = 'http://www.baidu.com';
+            //     }
+            // }
+            // setInterval(fn,1000);
+
+
+            // let index = 10;
+            // function fn(){
+            //     index--;
+            //     if(index<0)return;
+            //     console.log(index);
+            // }
+            // setInterval(fn,1000);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

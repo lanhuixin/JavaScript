@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="蓝涩">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0; user-select: none;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            position: relative;
+            width: 820px;
+            height: 400px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1000%;
+            transition: .5s;
+        }
+        #img li{
+            float: left;
+        }
+        #tab{
+            position: absolute;
+            top: 350px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #tab li{
+            float: left;
+            width: 20%;
+            height: 50px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        #tab li.active{
+            background-color: #1c1f21;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="img">
+            <li class="show"><a href=""><img src="img/lol1.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/lol2.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/lol3.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/lol4.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/lol5.jpg" alt=""></a></li>
+        </ul>
+        <ul id="tab">
+            <li class="active">LOL1</li>
+            <li>LOL2</li>
+            <li>LOL3</li>
+            <li>LOL4</li>
+            <li>LOL5</li>
+        </ul>
+    </div>
+    <script>
+        let aimg = document.querySelector('#img'),
+            awra = document.getElementById('wrap'),
+            atab = document.querySelectorAll('#tab li'),
+            len = atab.length,
+            index = 0;
+        [...atab].forEach( function (a,b) {
+                a.onclick = function(){
+                    if(b===index)return;
+                    atab[index].className ='';
+                    index=b;
+                    atab[index].className ='active';
+                    aimg.style.left = '-'+index*820+'px';
+                }
+            }
+
+        )
+        function fn(){
+            atab[index].className ='';
+            index++;
+            if( index > len-1 )index=0;
+            atab[index].className ='active';
+            aimg.style.left = '-'+index*820+'px';
+        }
+
+        let timer = setInterval(fn,2000);//定义定时器
+
+        awra.onmouseenter = function(){//清除定时器
+            clearInterval(timer);
+        }
+        awra.onmouseleave = function(){
+            timer = setInterval(fn,2000);//要把timer重新赋值给他,下一次移入才能清除定时器
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

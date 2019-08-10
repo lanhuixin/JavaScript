@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: absolute;
+                top: 100px;
+                left: 300px;
+                width: 200px;
+                height: 200px;
+                background-color: magenta;
+            }
+            .e{
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 5px;
+                height: 100%;
+                background-color: #00FF40;
+                cursor: e-resize;
+            }
+            .s{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 5px;
+                background-color: #00FF40;
+                cursor: s-resize;
+            }
+            .w{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 5px;
+                height: 100%;
+                background-color: #00FF40;
+                cursor: w-resize;
+            }
+            .n{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 5px;
+                background-color: #00FF40;
+                cursor: n-resize;
+            }
+            .es{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 5px;
+                height: 5px;
+                background-color: red;
+                cursor: se-resize;
+            }
+            .ws{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 5px;
+                height: 5px;
+                background-color: red;
+                cursor: sw-resize;
+            }
+            .wn{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 5px;
+                height: 5px;
+                background-color: red;
+                cursor: nw-resize;
+            }
+            .en{
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 5px;
+                height: 5px;
+                background-color: red;
+                cursor: ne-resize;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="e"></div>
+            <div class="s"></div>
+            <div class="w"></div>
+            <div class="n"></div>
+            <div class="es"></div>
+            <div class="ws"></div>
+            <div class="wn"></div>
+            <div class="en"></div>
+        </div>
+        
+        <script>
+            (function(){
+
+                let ow = document.getElementById('wrap'),
+                    od = [...document.querySelectorAll('#wrap div')];
+                od.forEach((ele,ind)=>{
+                    switch(ind){
+                        case 0://东
+                            ele.onmousedown = function(ev){
+                                let px = parseFloat(getComputedStyle(ow).width),
+                                    sx = ev.clientX;
+                                document.onmousemove = function(ev){
+                                    let mx = ev.clientX;
+                                    let x = mx-sx;
+                                    let owid = Math.max(px+x,10);
+                                    ow.style.width = `${owid}px`;
+                                }
+                            }
+                            break;
+                        case 1://南
+                            ele.onmousedown = function(ev){
+                                let py = parseFloat(getComputedStyle(ow).height),
+                                    sy = ev.clientY;
+                                document.onmousemove = function(ev){
+                                    let my = ev.clientY;
+                                    let y = my-sy;
+                                    let ohe = Math.max(py+y,10);
+                                    ow.style.height = `${ohe}px`;
+                                }
+                            }
+                            break;
+                        case 2://西
+                            ele.onmousedown = function(ev){
+                                let px = parseFloat(getComputedStyle(ow).width),
+                                    pl = ow.offsetLeft,
+                                    sx = ev.clientX;
+                                let maxleft = pl + ow.offsetWidth -10;
+                                document.onmousemove = function(ev){
+                                    let mx = ev.clientX;
+                                    let x = mx-sx;//鼠标移动距离
+                                    let owid = Math.max(px-x,10);
+                                    ow.style.width = `${owid}px`;
+                                    let left = pl+x;
+                                    left = Math.min(left,maxleft);
+                                    ow.style.left = left+'px';
+                                }
+                            }
+                            break;
+                        case 3://北
+                            ele.onmousedown = function(ev){
+                                let py = parseFloat(getComputedStyle(ow).height),
+                                    pt = ow.offsetTop,
+                                    sy = ev.clientY;
+                                let maxtop = pt + ow.offsetHeight -10;
+                                document.onmousemove = function(ev){
+                                    let my = ev.clientY;
+                                    let y = my-sy;//鼠标移动距离
+                                    let ohe = Math.max( py-y ,10);
+                                    ow.style.height = `${ohe}px`;
+                                    let top = pt+y;
+                                    top = Math.min(top,maxtop);
+                                    ow.style.top = top+'px';
+                                }
+                            }
+                            break;
+                        case 4://东南
+                            ele.onmousedown = function(ev){
+                                let px = parseFloat(getComputedStyle(ow).width),
+                                    py = parseFloat(getComputedStyle(ow).height),
+                                    sy = ev.clientY,
+                                    sx = ev.clientX;
+                                document.onmousemove = function(ev){
+                                    let my = ev.clientY;
+                                    let mx = ev.clientX;
+                                    let x = mx-sx;
+                                    let y = my-sy;
+                                    let owid = Math.max(px+x,10);
+                                    let ohe = Math.max(py+y,10);
+                                    ow.style.width = `${owid}px`;
+                                    ow.style.height = `${ohe}px`;
+                                }
+                            }
+                            break;
+                        case 5://西南
+                            ele.onmousedown = function(ev){
+                                let px = parseFloat(getComputedStyle(ow).width),
+                                    py = parseFloat(getComputedStyle(ow).height),
+                                    sy = ev.clientY,
+                                    sx = ev.clientX,
+                                    pl = ow.offsetLeft;
+                                let maxleft = pl + ow.offsetWidth -10;
+                                document.onmousemove = function(ev){
+                                    let my = ev.clientY;
+                                    let mx = ev.clientX;
+                                    let x = mx-sx;
+                                    let y = my-sy;
+                                    let owid = Math.max(px-x,10);
+                                    let ohe = Math.max(py+y,10);
+                                    ow.style.width = `${owid}px`;
+                                    ow.style.height = `${ohe}px`;
+                                    let left = pl+x;
+                                    left = Math.min(left,maxleft);
+                                    ow.style.left = left+'px';
+                                }
+                            }
+                            break;
+                        case 6://西北
+                            ele.onmousedown = function(ev){
+                                let px = parseFloat(getComputedStyle(ow).width),
+                                    py = parseFloat(getComputedStyle(ow).height),
+                                    sy = ev.clientY,
+                                    sx = ev.clientX,
+                                    pt = ow.offsetTop,
+                                    pl = ow.offsetLeft;
+                                let maxtop = pt + ow.offsetHeight -10;
+                                let maxleft = pl + ow.offsetWidth -10;
+                                document.onmousemove = function(ev){
+                                    let my = ev.clientY;
+                                    let mx = ev.clientX;
+                                    let x = mx-sx;
+                                    let y = my-sy;
+                                    let owid = Math.max(px-x,10);
+                                    let ohe = Math.max(py-y,10);
+                                    ow.style.width = `${owid}px`;
+                                    ow.style.height = `${ohe}px`;
+                                    let top = pt+y;
+                                    top = Math.min(top,maxtop);
+                                    ow.style.top = top+'px';
+                                    let left = pl+x;
+                                    left = Math.min(left,maxleft);
+                                    ow.style.left = left+'px';
+                                }
+                            }
+                            break;
+                        case 7://东北
+                            ele.onmousedown = function(ev){
+                                let px = parseFloat(getComputedStyle(ow).width),
+                                    py = parseFloat(getComputedStyle(ow).height),
+                                    sy = ev.clientY,
+                                    sx = ev.clientX,
+                                    pt = ow.offsetTop;
+                                let maxtop = pt + ow.offsetHeight -10;
+                                document.onmousemove = function(ev){
+                                    let my = ev.clientY;
+                                    let mx = ev.clientX;
+                                    let x = mx-sx;
+                                    let y = my-sy;
+                                    let owid = Math.max(px+x,10);
+                                    let ohe = Math.max(py-y,10);
+                                    ow.style.width = `${owid}px`;
+                                    ow.style.height = `${ohe}px`;
+                                    let top = pt+y;
+                                    top = Math.min(top,maxtop);
+                                    ow.style.top = top+'px';
+                                }
+                            }
+                            break;
+                    }
+
+                })
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                }
+            })();
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

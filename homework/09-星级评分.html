@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 500px;
+                height: 100px;
+                margin: 50px auto;
+            }
+            #wrap .star{
+                float: left;
+                color: red;
+            }
+            #wrap .star span{
+                display: inline-block;
+                width: 19px;
+                height: 19px;
+                background: url("img/star.png");
+                cursor: pointer;
+            }
+            #wrap .star span.show{
+                background-position: 0 -27px ;
+            }
+            #wrap .tip{
+                float: left;
+                width: 200px;
+                height: 50px;
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p class="star">星级评分: <span ></span><span></span><span></span><span></span><span></span> </p>
+            <p class="tip">提示: 请认真给当前文章打分</p>
+        </div>
+        <script>
+            let aspan = document.querySelectorAll('#wrap .star span'),
+                ostar = document.querySelector('#wrap .star'),
+                otip = document.getElementsByClassName('tip')[0],
+                length = aspan.length,
+                index = -1;
+                tips = ['提示: 请认真给当前文章打分','差评','凑合','还行','不错','推荐'];
+            for(let i=0;i<length;i++){
+                aspan[i].onmouseenter = function(){
+                    //从0到i都要进行点亮,再使用一次for循环
+                    for(let j=0;j<length;j++){
+                        if(j<=i){
+                            aspan[j].className ='show';
+                        }else{
+                            aspan[j].className ='';
+                        }
+                    }
+                    otip.innerHTML =tips[i+1];
+                }
+                //鼠标移入时星星已点亮,无需再设计此步骤
+                // ,只需记住当前的星星号即可,
+                //
+                aspan[i].onclick = function(){
+                    index = i;
+                };
+                ostar.onmouseleave = function(){
+                    for(let i=0;i<length;i++){
+                        //保证鼠标移出时,点击的星星还在
+                        aspan[i].className = i<=index?"show":"";
+                    }
+                    otip.innerHTML = tips[index+1];
+                }
+
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

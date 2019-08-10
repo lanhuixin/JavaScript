@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                box-sizing: border-box;
+                width: 502px;
+                height: 200px;
+                margin: 50px auto;
+                padding: 50px;
+                border: 1px solid #bbb;
+            }
+            #wrap .content{
+                width: 502px;
+                height: 80px;
+                overflow: hidden;
+            }
+            #wrap .content ul{
+                position: relative;
+                top: 0;
+                float: left;
+                width: 50px;
+                height: 80px;
+                margin-left: 10px;
+            }
+            #wrap div ul.tran{
+                transition: top .5s;
+                top:-80px;
+            }
+            #wrap .content ul li{
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                background-image:linear-gradient(to top,#000 0%,#bbb 100%);
+                font-size: 40px;
+                font-weight: bolder;
+                line-height: 80px;
+                text-align: center;
+                color: #fff;
+            }
+            #wrap .content .pointer ul{
+                width: 10px;
+                height: 80px
+            }
+            #wrap .content .pointer ul li{
+                width: 10px;
+                height: 10px;
+                margin-top: 20px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="content">
+              <ul class="time">
+                    <li class='first'>0</li>
+                    <li class="second">0</li>
+                </ul>
+              <ul class="time">
+                    <li class='first'>0</li>
+                    <li class="second">0</li>
+                </ul>
+                <div class="pointer">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+              <ul class="time">
+                    <li class='first'>0</li>
+                    <li class="second">0</li>
+                </ul>
+              <ul class="time">
+                    <li class='first'>0</li>
+                    <li class="second">0</li>
+                </ul>
+                <div class="pointer">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+              <ul class="time">
+                    <li class='first'>0</li>
+                    <li class="second">0</li>
+                </ul>
+              <ul class="time">
+                    <li class='first'>0</li>
+                    <li class="second">0</li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+           let af = [...document.querySelectorAll('.time .first')],
+               as = [...document.querySelectorAll('.time .second')],
+               aP = [...document.querySelectorAll("#wrap .time")],
+               lastTimeArr = [];
+           function m(){
+               let d = new Date(),
+                   H = d.getHours(),
+                   M = d.getMinutes(),
+                   S = d.getSeconds();
+               H = H<10?'0'+H:H+'';
+               M = M<10?'0'+M:M+'';
+               S = S<10?'0'+S:S+'';
+               return [...H,...M,...S];
+           }
+           function show(){
+               let time = m();
+               lastTimeArr = time;
+               af.forEach((val,inx)=>{
+                   val.innerHTML = time[inx];
+               });
+               return function(){
+                   let d = m();
+                   d.forEach((value,index)=>{
+                       //六位时间值和前一秒的不相同的才需要进行动画
+                       if( value === lastTimeArr[index] )return;
+                       //改变下面的span的显示
+                       as[index].innerHTML = d[index];
+                       //p的动画
+                       aP[index].classList.add("tran");
+                       //还原
+                       setTimeout(()=>{
+                           af[index].innerHTML = d[index];
+                           aP[index].classList.remove("tran");
+                       },500);
+                   });
+               lastTimeArr = d;
+               };
+           }
+           setInterval(show(),1000);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

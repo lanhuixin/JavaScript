@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            var fn = addEvent(wrap,'click',function(){
+                this.style.backgroundColor = 'red';
+
+            });
+
+            addEvent(document,'dblclick',function(){
+                removeEvent(wrap,'click',fn);
+            });
+            //监听事件
+            function addEvent(ele,eType,callback,capture){
+
+                if(ele.addEventListener){
+                    if(eType === 'mousewheel' && document.createElement('div').onmousewheel === undefined){
+                        eType = 'DOMMouseScroll';
+                    }
+                    ele.addEventListener(eType,callback,capture);
+                    return callback;
+                }else{
+                    var codecall = function(){
+                        //ie低版本不支持bind
+                        callback.call(ele);
+                    }
+                    ele.attachEvent('on'+eType,codecall);
+                    return codecall;
+                }
+            }
+
+            //移除事件
+            function removeEvent(ele,eType,callback,capture){
+                ele.removeEventListener?ele.removeEventListener(eType,callback,capture):ele.detachEvent('on'+eType,callback);
+
+            }
+
+            //一次性事件  removeEvent(wrap,'click',fn);\
+            function oneEvent(ele,eType,callback,capture){
+                var fn = addEvent(wrap,eType,function(e){
+                    // event = event || window.event;
+                    callback.call(ele,e);
+                    removeEvent(this,'click',fn);
+
+                });
+            }
+
+            //滚轮事件
+            addEvent(wrap,'mousewheel',function(){
+                console.log(1);
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

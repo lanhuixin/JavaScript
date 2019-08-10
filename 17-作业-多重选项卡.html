@@ -91,7 +91,7 @@
                 let color = ["#222" , "#555" , "#888", "#bbb"];
                 let colorLen = color.length;
                 for(let i=0;i<len;i++){
-                    html += `<li style="background-color:${color[i%colorLen]}">${data[i].TXT}</li>`;
+                    html += `<li style="background-color:${color[i% colorLen]}">${data[i].TXT}</li>`;
                 }
                 oUl.innerHTML = html;
             })();

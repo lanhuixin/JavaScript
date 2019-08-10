@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;user-select: none;}
+            img{border:none;}
+        #wrap .swiper{
+            position: relative;
+            width: 800px;
+            height: 500px;
+            margin: 50px auto;
+            /*overflow: hidden;*/
+        }
+        #wrap .swiper .img{
+            position: absolute;
+            top: 0;
+            left: -800px;
+            width: 1000%;
+            transition: .3s;
+        }
+        #wrap .swiper .img li{
+            float: left;
+        }
+        .swiper .img li img{
+            width: 800px;
+            height: 500px;
+        }
+        .swiper .tab li{
+            visibility: hidden;
+            position: absolute;
+            top: 200px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0,0,0,.5);
+            line-height: 100px;
+            font-size: 40px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            transition: .5s;
+            opacity: 0;
+        }
+        .swiper:hover .tab li{
+            visibility: visible;
+            opacity: 1;
+        }
+        .swiper .tab .left{
+            left: 0;
+        }
+        .swiper .tab .right{
+            left: 700px;
+        }
+        .swiper .bot{
+            position: absolute;
+            bottom: 50px;
+            left: 300px;
+        }
+        .swiper .bot li{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: rgba(0,0,0,.5);
+        }
+        .swiper .bot .show{
+            background-color: #fff;
+        }
+        #wrap .swiper .img.on{
+            transition: 0s;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="swiper">
+                <ul class="img">
+                    <li><img src="img/9-4.jpg" alt=""></li>
+
+                    <li><img src="img/9-1.jpg" alt=""></li>
+                    <li><img src="img/9-2.jpg" alt=""></li>
+                    <li><img src="img/9-3.jpg" alt=""></li>
+                    <li><img src="img/9-4.jpg" alt=""></li>
+
+                    <li><img src="img/9-1.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li class="left"> < </li>
+                    <li class="right"> > </li>
+                </ul>
+                <ul class="bot">
+                    <li class="show"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            let osp = document.querySelector('#wrap .swiper'),
+                aimg = document.querySelector('#wrap .swiper .img'),
+                ali = document.querySelectorAll('#wrap .swiper .img li'),
+                abo = [...document.querySelectorAll('.swiper .bot li')],
+                but = [...document.querySelectorAll('.swiper .tab li')],
+                len = ali.length,
+                ble = abo.length,
+                index = 0;
+            function change(inx){
+                //处理图片的变化
+                aimg.classList.remove('on');
+                aimg.style.left = '-'+(inx+1)*800+'px';
+                //判断inx大小
+                if( inx < 0 ){
+                    //做出无缝切换的效果
+                    setTimeout(function(){
+                        aimg.classList.add('on');
+                        aimg.style.left = '-'+(len-2)*800+'px';
+                    },320)
+                    inx = ble-1;
+                }else if( inx > ble-1 ){
+                    setTimeout(function(){
+                        aimg.classList.add('on');
+                        aimg.style.left = '-'+800+'px';
+                    },320)
+                    inx = 0
+                }
+                //处理下方小点的变化
+                abo[index].classList.remove('show');
+                index = inx;
+                abo[index].classList.add('show');
+                // aimg[index].style.left = '-'+800*index+'px';
+            }
+            //下方小点的点击事件
+            abo.forEach((a,b)=>{
+                a.onclick = function(){
+                    change(b);
+                }
+            })
+            //左右按钮的点击事件
+            but.forEach((a,b)=>{
+                a.onclick = function(){
+                    change(b?index+1:index-1);
+                }
+            })
+           function fn(){
+                change(index+1)
+           }
+           let timer = setInterval(fn,3000);
+            osp.onmouseenter = ()=>{
+                clearInterval(timer)
+            }
+            osp.onmouseleave = ()=>{
+                timer = setInterval(fn,3000);
+            }
+
+
+
+            // ori.onclick = function(){
+            //     change(index+1);
+            //     // abo[index].classList.remove('show');
+            //     // index++;
+            //     // // index %=len;//当index>len-1时index等于0
+            //     // if(index>len-1)index=0;
+            //     // abo[index].classList.add('show');
+            //     // aimg.style.left = '-'+index*800+'px';
+            // }
+            // ole.onclick = function(){
+            //     change(index-1);
+            //     // abo[index].classList.remove('show');
+            //     // index--;
+            //     // // index %=len;//当index>len-1时index等于0
+            //     // if(index<0)index=len-1;
+            //     // abo[index].classList.add('show');
+            //     // aimg.style.left = '-'+index*800+'px';
+            // }
+            // function change(index1){
+            //     abo[index].classList.remove('show');
+            //     if(index1<0){
+            //         index = len-1;
+            //     }else if(index1 >len-1){
+            //         index = 0
+            //     }else{
+            //         index = index1;
+            //     }
+            //     abo[index].classList.add('show');
+            //     aimg.style.left = '-'+index*800+'px';
+            // }
+            //定时器
+            // function m(){
+            //     abo[index].classList.remove('show');
+            //     index++;
+            //     if(index>len-1)index=0;
+            //     abo[index].classList.add('show');
+            //     aimg.style.left = '-'+index*800+'px';
+            //
+            // }
+            // setInterval(m,2000);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

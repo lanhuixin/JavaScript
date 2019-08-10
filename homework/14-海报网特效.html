@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 1080px;
+                margin: 50px auto;
+            }
+            #wrap .bar{
+                width: 100%;
+                height: 10px;
+                margin: 10px 0 10px;
+                background-image: url("img/report/bg.png");
+            }
+            .content .top-bar{
+                background-color: #eee;
+            }
+            .content .top-bar .title{
+                position: relative;
+                width: 132px;
+                height: 40px;
+                float: left;
+                line-height: 40px;
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+                margin-right: 30px;
+            }
+            .content .top-bar .title:after{
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: -20px;
+                width: 0;
+                height: 0;
+                border-width: 10px;
+                border-style: solid;
+                border-color: transparent transparent transparent #000;
+            }
+            .content .top-bar .list{
+                height: 40px;
+            }
+            .content .top-bar .list .word{
+                float: left;
+                margin-right: 30px;
+                line-height: 40px;
+                font-size: 14px;
+                height: 40px;
+                cursor: pointer;
+            }
+            .top-bar .list{
+                position: relative;
+            }
+            .top-bar .list .img{
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                transition: .4s;
+            }
+            .top-bar .list .word .top-title span{
+                position: relative;
+                display: inline-block;
+                transition: .4s;
+                height: 40px;
+            }
+            .list .word .top-title span:after{
+                content:'';
+                position: absolute;
+                bottom: 0;
+                left: 40%;
+                opacity: 0;
+                width: 20%;
+                height: 3px;
+                background-color: red;
+                transition: .5s;
+            }
+            .word .top-title span:hover:after{
+                transform: scaleX(5);
+                opacity: 1;
+            }
+            .list .word .top-title span:hover{
+                color: red;
+            }
+            .top-bar .list .img.show{
+                display: block;
+            }
+            .top-bar .list .img li{
+                float: left;
+                margin-right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="bar"></div>
+            <div class="content">
+                <div class="top-bar">
+                    <div class="title">精品独家策划</div>
+                    <ul class="list">
+                        <li class="word">
+                            <p class="top-title"><span>全部</span></p>
+                            <ul class="img show">
+                                <li><a href=""><img src="img/report/1.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/2.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/3.jpg" alt=""></a></li>
+                            </ul>
+                        </li>
+                        <li class="word">
+                            <p class="top-title"><span>时装周</span></p>
+                            <ul class="img">
+                                <li><a href=""><img src="img/report/4.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/5.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/6.jpg" alt=""></a></li>
+                            </ul>
+                        </li>
+                        <li class="word">
+                            <p class="top-title"><span>潮我看齐</span></p>
+                            <ul class="img">
+                                <li><a href=""><img src="img/report/7.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/8.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/9.jpg" alt=""></a></li>
+                            </ul>
+                        </li>
+                        <li class="word">
+                            <p class="top-title"><span>搭配速成班</span></p>
+                            <ul class="img">
+                                <li><a href=""><img src="img/report/10.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/11.jpg" alt=""></a></li>
+                                <li><a href=""><img src="img/report/12.jpg" alt=""></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="bar"></div>-->
+        </div>
+        
+        <script>
+            let ap = document.querySelectorAll('.word .top-title'),
+                aimg = document.querySelectorAll('.word .img'),
+                len = ap.length,
+                index = 0;
+            for(let i=0;i<len;i++){
+                ap[i].onmouseenter = function(){
+                   if(index===i)return;
+                   aimg[index].classList.remove('show');
+                   index =i;
+                   aimg[index].classList.add('show');
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

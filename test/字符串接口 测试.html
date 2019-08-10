@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            let text ='1AlanLuoTingshu';
+            console.log( text.substring(5, 9) );//luot
+            console.log( text.substring(-3, -1) );//空 不能使用负数
+            console.log( text.substring(9, 6) );//uot ===(6,9)
+            console.log( text.slice(2, 6) );//lanl
+            console.log( text.charAt(3) );//a
+            console.log( text.charCodeAt(1) );//65
+            console.log( String.fromCharCode(108) );//l
+            console.log( text.toLocaleUpperCase() );//1ALANLUOTINGSHU
+            console.log( text.toLocaleLowerCase() );//1alanluotingshu
+            console.log( text.indexOf('L') );//5
+            console.log( text.indexOf('u',9) );//从第九位开始数 14
+            console.log( text.split('L') );//以L为界限切开 ['1Alan','uoTingshu']
+            //普通对象
+            let a = 'woniu';
+            a.index ='nima';
+            console.log( a.index );
+            //包装对象
+            let b = new String('woniu');
+            b.index ='nima';
+            console.log(b.index);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 300px;
+                margin: 50px auto;
+                border: 1px solid #000;
+            }
+            .but{
+                margin-top: 20px;
+            }
+            .con{
+                border: 1px dashed magenta;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="list">
+                <h2>抽奖一次20元</h2>
+                <p>一等奖:50元</p>
+                <p>二等奖:30元</p>
+                <p>三等奖:20元</p>
+                <button class="but">点击抽奖</button>
+            </div>
+            <div class="con"></div>
+        </div>
+        
+        <script>
+            let but = document.querySelector('.but'),
+                con = document.querySelector('.con');
+            but.onclick = function(){
+                let ran = Math.random();
+                let html = '';
+                if(ran<0.005){
+                    html = `<p>恭喜您,获得一等奖</p>`
+                }else if(ran<0.15){
+                    html = `<p>恭喜您,获得二等奖</p>`
+                }else if(ran<0.45){
+                    html = `<p>恭喜您,获得三等奖</p>`
+                }else{
+                    html = `<p>谢谢惠顾!!!</p>`;
+                }
+                con.innerHTML += html;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

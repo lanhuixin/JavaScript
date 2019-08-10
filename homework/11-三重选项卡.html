@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;user-select: none}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 540px;
+                height: 255px;
+                margin: 50px auto;
+            }
+            #wrap .list{
+                float: left;
+                margin-right: 10px;
+            }
+            #wrap .list li{
+                width: 125px;
+                height: 35px;
+                background-color: #000;
+                margin-bottom: 2px;
+                color: #fff;
+                text-align: center;
+                line-height: 35px;
+                cursor: pointer;
+            }
+            #wrap .list li.active{
+                background-color: orangered;
+            }
+            .right{
+                display: none;
+                position: relative;
+                top: 0;
+                left: 130px;
+            }
+            .right.on{
+                display: block;
+            }
+            .right .img li{
+                display: none;
+                position: absolute;
+            }
+            .right .img li.show{
+                display: block;
+            }
+            .right .tab{
+                position: absolute;
+                top: 150px;
+                left: 0;
+                width: 300px;
+                height: 37px;
+            }
+            .right .tab li{
+                float: left;
+                width: 36px;
+                height: 36px;
+                margin-left: 10px;
+                background-color: black;
+                text-align: center;
+                line-height: 36px;
+                color: #fff;
+                cursor: pointer;
+            }
+            .right .tab li.change{
+                background-color: orangered;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <li class="active">豪车</li>
+                <li>美味</li>
+                <li>美女风景</li>
+            </ul>
+            <div class="right on">
+                <ul class="img">
+                    <li class="show"><img src="img/11/1.jpg" alt=""></li>
+                    <li><img src="img/11/2.jpg" alt=""></li>
+                    <li><img src="img/11/3.jpg" alt=""></li>
+                    <li><img src="img/11/4.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li class="change">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+            <div class="right ">
+                <ul class="img">
+                    <li class="show"><img src="img/11/m1.jpg" alt=""></li>
+                    <li><img src="img/11/m2.jpg" alt=""></li>
+                    <li><img src="img/11/m3.jpg" alt=""></li>
+                    <li><img src="img/11/m4.jpg" alt=""></li>
+                    <li><img src="img/11/m5.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li class="change">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul class="img">
+                    <li class="show"><img src="img/11/s1.jpg" alt=""></li>
+                    <li><img src="img/11/s2.jpg" alt=""></li>
+                    <li><img src="img/11/s3.jpg" alt=""></li>
+                    <li><img src="img/11/s4.jpg" alt=""></li>
+                    <li><img src="img/11/s5.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li class="change">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            let alist = document.querySelectorAll('#wrap .list li'),
+                aright = document.querySelectorAll('#wrap .right'),
+                aimg = document.querySelectorAll('.right .img'),
+                atab = document.querySelectorAll('.right .tab'),
+                len = alist.length,
+                index =0;
+            for(let i=0;i<len;i++){
+                left(i);
+                right(i)
+            }
+            function left(i){
+                alist[i].onclick = function(){
+                    if(i===index)return;
+                    alist[index].className ='';
+                    aright[index].className ='right';
+                    index=i;
+                    alist[index].className ='active';
+                    aright[index].className ='right on';
+                }
+            }
+            function right(i){
+                let aim =aimg[i].querySelectorAll('li'),
+                    ata =atab[i].querySelectorAll('li'),
+                    index1 =0;
+                for(let j=0;j<aim.length;j++){
+                    ata[j].onclick = function(){
+                        if(j===index1)return;
+                        ata[index1].className ='';
+                        aim[index1].className ='';
+                        index1=j;
+                        ata[index1].className ='change';
+                        aim[index1].className ='show';
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

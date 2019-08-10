@@ -5,7 +5,7 @@
         <title>Title</title>
         <meta name="keywords" content="关键词">
         <meta name="description" content="描述">
-        <meta name="author" content="罗舒婷">
+        <meta name="author" content="蓝涩">
         <style>
             body{font-family: "Microsoft YaHei",serif;}
             body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
@@ -15,8 +15,20 @@
         </style>
     </head>
     <body>
-        <div id="wrap"></div>
+        <div id="wrap">
+            <p id="kk"></p>
+        </div>
+        
+        <script>
+            let ow = document.getElementById('wrap');
+            let ok = document.getElementById('kk');
+            let od = document.createElement('div');
+            ow.appendChild(od);
+            ow.removeChild(od);
+            ow.insertBefore(od ,ow.children[0]);
+        </script>
     </body>
+</html>
 </html>
 
 

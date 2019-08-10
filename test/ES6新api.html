@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p>00001</p>
+            <p>00002</p>
+            <p>00003</p>
+        </div>
+        
+        <script>
+            // let str = 'hello world';
+            // console.log(str.includes('hello'));
+            // console.log(str.includes('world', 5));
+            // console.log(str.startsWith('hello'));
+            // console.log(str.startsWith('world',6));
+            // console.log(str.endsWith('world'));
+            // console.log(str.endsWith('hello',5));
+                //...的使用
+            let ap = document.getElementsByTagName('p');
+            [...ap].forEach(
+                function(n,i){
+                    n.onclick = function(){
+                        alert(i);
+                    }
+                }
+            )
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

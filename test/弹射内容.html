@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap {
+                position: relative;
+                width: 500px;
+                height: 500px;
+                margin: 50px auto;
+                background-color: pink;
+            }
+            @keyframes show {
+                0%{
+                    opacity: 1;
+                    width: 200px;
+                    height: 10px;
+                }
+                25%{
+                    opacity: 1;
+                    width: 400px;
+                    height: 10px;
+                }
+                35%{
+                      opacity: 1;
+                      width: 400px;
+                      height: 150px;
+                  }
+                100%{
+                    opacity: 1;
+                    width: 400px;
+                    height: 400px;
+                }
+            }
+            @keyframes show1 {
+                0%{
+                    opacity: 1;
+                    width: 400px;
+                    height: 400px;
+                }
+                25%{
+                    opacity: 1;
+                    width: 400px;
+                    height: 150px;
+                }
+                35%{
+                    opacity: 1;
+                    width: 400px;
+                    height: 10px;
+                }
+                100%{
+                    opacity: 1;
+                    width: 0px;
+                    height: 0px;
+                }
+            }
+            #wrap .inside{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                opacity: 0;
+                background-color: rgba(255,255,255,.5);
+            }
+            #wrap .inside span{
+                display: none;
+            }
+            #wrap .inside span.show{
+                display: block;
+            }
+            /*#wrap:hover .inside{*/
+                /*animation: show .4s linear forwards;*/
+            /*}*/
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="inside"> <span>我爱罗舒婷</span> </div>
+        </div>
+        <script>
+           let owrap = document.getElementById('wrap'),
+               oinside = document.querySelector('#wrap .inside'),
+               otex = document.querySelector('#wrap .inside span') ;
+           owrap.onmouseenter = function(){
+               oinside.style.animation ='show .4s ease-in-out forwards';
+               otex.className = 'show';
+           }
+           owrap.onmouseleave = function () {
+               oinside.style.animation = 'show1 .4s ease-out forwards';
+               otex.className = '';
+           }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

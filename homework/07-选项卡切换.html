@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0; user-select: none;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 820px;
+                height: 390px;
+                margin: 50px auto;
+            }
+            #img li{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #img li.show{
+                display: block;
+            }
+            #tab{
+                position: absolute;
+                top: 340px;
+                left: 0;
+                width: 100%;
+                height: 50px;
+            }
+            #tab li{
+                float: left;
+                width: 20%;
+                height: 50px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                line-height: 50px;
+                cursor: pointer;
+            }
+            #tab li.active{
+                background-color: #1c1f21;
+                color: gold;
+            }
+            #left,#right{
+                position: absolute;
+                top: 150px;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                line-height: 50px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #left{
+                left: 0;
+            }
+            #right{
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="img">
+                <li class="show"><a href=""><img src="img/lol1.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/lol2.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/lol3.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/lol4.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/lol5.jpg" alt=""></a></li>
+            </ul>
+            <ul id="tab">
+                <li class="active">LOL1</li>
+                <li>LOL2</li>
+                <li>LOL3</li>
+                <li>LOL4</li>
+                <li>LOL5</li>
+            </ul>
+            <div id="left"> < </div>
+            <div id="right"> > </div>
+        </div>
+        <script>
+            let aimg = document.querySelectorAll('#img li'),
+                atab = document.querySelectorAll('#tab li'),
+                oleft = document.getElementById('left'),
+                oright = document.getElementById('right'),
+                length = aimg.length,
+                index = 0;
+            for(let i=0;i<length;i++){
+                atab[i].onclick = function(){
+                    if(i===index)return;
+                        atab[index].className ='';
+                        aimg[index].className ='';
+                        index=i;
+                        atab[index].className ='active';
+                        aimg[index].className ='show';
+                }
+            }
+            oleft.onclick = function(){
+                aimg[index].className ='';
+                atab[index].className = '';
+                index--;
+                if(index<0)index=length-1;
+                aimg[index].className = 'show'
+                atab[index].className = 'active';
+            }
+            oright.onclick = function(){
+                aimg[index].className ='';
+                atab[index].className = '';
+                index++;
+                if(index>length-1)index=0;
+                aimg[index].className = 'show'
+                atab[index].className = 'active';
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

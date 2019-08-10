@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;user-select: none}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap .choose{
+                box-sizing: border-box;
+                width: 380px;
+                margin: 50px auto;
+                border: 1px solid #000;
+                padding: 20px 0 10px;
+                border-radius: 10px;
+            }
+            .choose .list{
+                width: 100%;
+            }
+            .choose .list li{
+                width: 100%;
+                height: 60px;
+                margin-bottom: 1px;
+                line-height: 60px;
+                text-indent: 2em;
+                color: #fff;
+                border-right: 1px solid black;
+                cursor: pointer;
+            }
+            .choose .list li span,.choose .but p span{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                vertical-align: -3px;
+                background-image: url("img/ckbg1.jpg");
+            }
+            .choose .list li span.show,.choose .but p span.show{
+                background-image: url("img/ckbg2.jpg");
+            }
+            .choose .but{
+                margin-top: 10px;
+            }
+            .choose .but p{
+                display: inline-block;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="choose">
+                <ul class="list">
+                    <li><span></span>项目1</li>
+                    <li><span></span>项目2</li>
+                    <li><span></span>项目3</li>
+                    <li><span></span>项目4</li>
+                    <li><span></span>项目5</li>
+                    <li><span></span>项目6</li>
+                    <li><span></span>项目7</li>
+                    <li><span></span>项目8</li>
+                    <li><span></span>项目9</li>
+                    <li><span></span>项目10</li>
+                </ul>
+                <div class="but">
+                    <p class="all"><span></span>全选</p>
+                    <p class="reverse"><span></span>反选</p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            let ali =document.querySelectorAll('.choose .list li'),
+                asp =document.querySelectorAll('.choose .list li span'),
+                oall = document.querySelector('.choose .but .all'),
+                osp = document.querySelector('.choose .but .all span'),
+                ore  = document.querySelector('.choose .but .reverse'),
+                orsp  = document.querySelector('.choose .but .reverse span'),
+                len = ali.length,
+                color = ['#000','gray','#aaa'];
+            //颜色设置
+            for(let i=0;i<len;i=i+3){
+                ali[i].style.backgroundColor = `${color[0]}`;
+             }
+            for(let i=1;i<len;i=i+3){
+                ali[i].style.backgroundColor = `${color[1]}`;
+            }
+            for(let i=2;i<len;i=i+3){
+                ali[i].style.backgroundColor = `${color[2]}`;
+            }
+            //按钮点击
+            //全选按钮
+            oall.onclick= function(){
+                osp.classList.toggle('show');
+                    if(osp.classList.contains('show')){
+                        for(let i=0;i<len;i++){
+                            asp[i].classList.add('show');
+                        }
+                    }else{
+                        for(let i=0;i<len;i++){
+                            asp[i].classList.remove('show');
+                        }
+                    }
+            }
+            for(let i=0;i<len;i++){
+                    ali[i].onclick = function(){
+                        let bool =true;
+                        asp[i].classList.toggle('show');
+                        for(let i=0;i<len;i++){
+                            //判断所有的项目是不是都被选中
+                            if(asp[i].className !=='show'){
+                                bool =false;
+                                break;
+                            }
+                        }
+                        osp.className =bool?"show":"";
+                    }
+            }
+            //反选按钮
+            ore.onclick = function(){
+                orsp.classList.toggle('show');
+                for(let i=0;i<len;i++){
+                    if(asp[i].classList.contains('show')){
+                        asp[i].classList.remove('show')
+                    }else{
+                        asp[i].classList.add('show')
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

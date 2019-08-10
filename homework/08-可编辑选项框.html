@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;user-select: none;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #word li{
+                height: 100px;
+                border-bottom: 1px solid red;
+                padding-left: 50px;
+            }
+            #word li p{
+                float: left;
+                margin-top: 40px;
+            }
+            #word li input{
+                float: left;
+                margin: 40px 20px 0 20px;
+                color: gray;
+            }
+            #word li div{
+                float: left;
+                width: 50px;
+                height: 50px;
+                margin: 20px 10px 0 10px;
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+                line-height: 50px;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+            #word li p.hide{
+                display: none
+            }
+            #word li input{
+                display: none;
+            }
+            #word li input.show{
+                display: block;
+            }
+            #word li div.hide{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="word">
+                <li>
+                    <p>可编辑文本</p>
+                    <input type="text" value="可编辑文本">
+                    <div class="edit show">编辑</div>
+                    <div class="affirm hide">确认</div>
+                </li>
+                <li>
+                    <p>可编辑文本</p>
+                    <input type="text" value="可编辑文本">
+                    <div class="edit show">编辑</div>
+                    <div class="affirm hide">确认</div>
+                </li>
+                <li>
+                    <p>可编辑文本</p>
+                    <input type="text" value="可编辑文本">
+                    <div class="edit show">编辑</div>
+                    <div class="affirm hide">确认</div>
+                </li>
+            </ul>
+        </div>
+        <script>
+           let op = document.querySelectorAll('#word li p')
+               oedit = document.querySelectorAll('#word li .edit'),
+               oinput = document.querySelectorAll('#word li input'),
+               oaffirm = document.querySelectorAll('#word li .affirm'),
+           length = oedit.length;
+           for(let i=0;i<length;i++){
+               oedit[i].onclick = function(){
+                    edit(i);
+               }
+               oaffirm[i].onclick = function(){
+                   affirm(i);
+               }
+           }
+           function edit(i) {
+               oedit[i].className = 'hide';
+               oaffirm[i].className = 'show';
+               op[i].className = 'hide';
+               oinput[i].className = 'show';
+           }
+           function affirm(i){
+               oedit[i].className = 'show';
+               oaffirm[i].className = 'hide';
+               op[i].className = 'show';
+               oinput[i].className = 'hide';
+               op[i].innerHTML = oinput[i].value;
+           }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

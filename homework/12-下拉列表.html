@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li,p{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 300px;
+                margin: 50px auto;
+                border: 1px solid #000;
+            }
+            .friend p{
+                width: 100%;
+                height: 30px;
+                background-color: magenta;
+                font-size: 20px;
+                cursor: pointer;
+                border-bottom: 1px solid #000;
+            }
+            .friend ul{
+                display: none;
+            }
+            .friend ul.show{
+                display: block;
+            }
+            .friend ul li{
+                width: 100%;
+                border-bottom: 1px dashed #999;
+                text-indent: 2em;
+                cursor: pointer;
+            }
+            .friend ul li:hover{
+                background-color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="friend">
+                <p>好友</p>
+                <ul>
+                    <li>张三</li>
+                    <li>李四</li>
+                    <li>王五</li>
+                    <li>赵六</li>
+                </ul>
+            </div>
+            <div class="friend">
+                <p>同事</p>
+                <ul>
+                    <li>钱七</li>
+                    <li>孙悟空</li>
+                    <li>沙悟净</li>
+                    <li>猪八戒</li>
+                </ul>
+            </div>
+            <div class="friend">
+                <p>学生</p>
+                <ul>
+                    <li>敖烈</li>
+                    <li>敖广</li>
+                    <li>敖春</li>
+                    <li>熬丙</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            let ap = document.querySelectorAll('.friend p'),
+                aul = document.querySelectorAll('.friend ul'),
+                len = ap.length;
+            for(let i=0;i<len;i++){
+                ap[i].onclick = function(){
+                    for(let j=0;j<len;j++){
+                        if(j===i){
+                            aul[j].classList.add('show');
+                        }else{
+                            aul[j].classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

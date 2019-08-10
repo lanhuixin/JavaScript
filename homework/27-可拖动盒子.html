@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100px;
+                background-color: magenta;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <script>
+            let ow = document.getElementById('wrap');
+
+            ow.onmousedown = function(ev){
+                let parL = ow.offsetLeft;
+                let parR = ow.offsetTop;
+
+                let mx = ev.clientX;
+                let my = ev.clientY;
+                document.onmousemove = function(ev){
+                    let cx = ev.clientX;
+                    let cy = ev.clientY;
+
+                    let l = cx - mx;
+                    let t = cy - my;
+                    ow.style.left = `${parL+l}px`;
+                    ow.style.top = `${parR+t}px`;
+                }
+            }
+            document.onmouseup = function(){
+                document.onmousemove = null;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

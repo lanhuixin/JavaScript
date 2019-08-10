@@ -40,7 +40,7 @@
             owrap.style.width = (num+1)*50 +'px';
             owrap.style.height = (num+1)*50 +'px';
             for(let i=0;i<=num;i++){
-                if(i<=mid){
+                if(i<mid){
                     owrap.innerHTML += `<div style="margin-left: ${i*50}px">${i}</div>`;
                 }else{
                     owrap.innerHTML += `<div style="margin-left: ${(num-i)*50}px">${i}</div>`;
