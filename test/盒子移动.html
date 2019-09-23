@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="蓝涩">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h1,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: absolute;
+                top: 150px;
+                left: 150px;
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            let ow = document.getElementById('wrap');
+            let code = {},
+            timer = null;
+            document.onkeydown = function(ev){
+                let keyCode = ev.keyCode;
+                switch(keyCode){
+                    case 38:
+                        code[38] || movetop()
+                        break;
+                    case 39:
+                        code[39] || moveleft()
+                        break;
+                    case 40:
+                        code[40] || movebottom()
+                        break;
+                    case 37:
+                        code[37] || moveright()
+                        break;
+                }
+                code[keyCode] = true;
+            }
+            document.onkeyup = function(ev){
+                let keyCode = ev.keyCode;
+                cancelAnimationFrame(timer);
+                code[keyCode] = false;
+            }
+            function movetop(){
+                !function m(){
+                    ow.style.top = ow.offsetTop-5+'px';
+                    timer = requestAnimationFrame (m);
+                }();
+            }
+            function moveleft(){
+                !function m(){
+                    ow.style.left = ow.offsetLeft+5+'px';
+                    timer = requestAnimationFrame (m);
+                }();
+            }
+            function movebottom(){
+                !function m(){
+                    ow.style.top = ow.offsetTop+5+'px';
+                    timer = requestAnimationFrame (m);
+                }();
+            }
+            function moveright(){
+                !function m(){
+                    ow.style.left = ow.offsetLeft-5+'px';
+                    timer = requestAnimationFrame (m);
+                }();
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
